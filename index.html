@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đào Tạo Doanh Nghiệp - VTALK Academy</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --text: #1a1a1a;
+        --gold: #d2ab7b;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section
+      class="relative bg-[#10100e] overflow-hidden min-h-[500px] lg:min-h-[400px] flex items-center font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <img
+        class="hidden lg:block absolute right-0 top-0 bottom-0 w-full h-full object-cover object-top block"
+        src="./images/hero.jpg"
+        alt="Hero Image"
+      />
+
+      <div
+        class="absolute left-6 md:left-12 top-6 text-[rgba(255,255,255,0.38)] space-x-2 text-[11.5px] z-[4]"
+      >
+        <span><a href="/">Trang chủ</a></span>
+        <span class="pointer-events-none">&rsaquo;</span>
+        <span class="text-[rgba(255,255,255,0.6)]"
+          ><a href="#">Đào tạo Doanh nghiệp</a></span
+        >
+      </div>
+
+      <div
+        class="relative z-[3] w-full mx-auto px-6 md:px-12 py-20 lg:py-24 flex flex-col lg:flex-row lg:items-end justify-between gap-8"
+      >
+        <div class="w-full lg:w-[55%]">
+          <h1
+            class="text-[25px] sm:text-4xl lg:text-[38px] font-bold uppercase space-y-1 lg:space-y-2"
+          >
+            <span class="text-white block">Đào tạo doanh nghiệp</span>
+            <span class="text-[#d2ab7b] block">Nâng tầm năng lực</span>
+            <span class="text-[#d2ab7b] block">Kiến tạo tăng trưởng</span>
+          </h1>
+
+          <p
+            class="mt-4 text-[#a6aaad] leading-[1.82] max-w-full lg:max-w-[80%] text-sm sm:text-[15px] lg:text-sm"
+          >
+            VTALK Academy đồng hành cùng doanh nghiệp xây dựng đội ngũ vững kỹ
+            năng – mạnh tư duy – bền văn hóa, sẵn sàng bứt phá trong kỷ nguyên
+            mới.
+          </p>
+          <div class="flex gap-3 mt-5 flex-wrap items-center">
+            <a
+              href="#"
+              class="w-full lg:w-fit justify-center lg:justify-start bg-[#d2ab7b] hover:bg-[#d2ab7b]/90 text-black font-bold text-xs sm:text-sm lg:text-xs py-3 px-4 border-none cursor-pointer no-underline inline-flex items-center gap-1.5 uppercase transition-colors duration-200 rounded-[6px]"
+            >
+              Nhận tư vấn giải pháp
+              <svg
+                class="size-3"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <path
+                  d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="#"
+              class="w-full lg:w-fit justify-center lg:justify-start bg-transparent text-white font-semibold text-xs sm:text-sm lg:text-xs py-[11px] px-4 border-[1.5px] border-solid border-[rgba(255,255,255,0.42)] cursor-pointer no-underline inline-flex items-center tracking-[0.7px] uppercase transition-colors duration-200 rounded-[6px] hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+            >
+              Xem các chương trình đào tạo
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="hidden lg:block bg-[rgba(20,18,14,0.72)] border border-[rgba(210,171,123,0.25)] rounded-[10px] p-6 max-w-[280px] w-full backdrop-blur-sm self-start lg:self-end"
+        >
+          <div class="text-[#e0b682] text-[22px] font-serif leading-none mb-3">
+            &ldquo;
+          </div>
+          <p
+            class="text-[#e0b682] text-[12.5px] leading-[1.8] uppercase tracking-[0.5px] font-medium"
+          >
+            Kỹ năng là nền tảng<br />
+            Văn hóa là sức mạnh<br />
+            Con người là lợi thế cạnh tranh
+          </p>
+          <div class="mt-4 pt-4 border-t border-[rgba(210,171,123,0.2)]">
+            <div class="text-white font-semibold text-[13px] mb-0.5">
+              Mai Nguyễn Hoàng Nam
+            </div>
+            <div class="text-[rgba(255,255,255,0.5)] text-[11px]">
+              Founder & Training Director <br />
+              VTALK Academy
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section
+      class="bg-[#070e16] py-[20px] px-0 pb-[22px] border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <p class="text-center text-sm uppercase text-[#d2ab7b] font-bold mb-4">
+        Đối tác đồng hành
+      </p>
+      <div class="flex items-center lg:w-[80%] mx-auto px-4 py-0">
+        <button
+          class="bg-none text-[rgba(255,255,255,0.5)] size-6 flex items-center justify-center cursor-pointer shrink-0 text-xl rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+          id="pPrev"
+        >
+          &#8249;
+        </button>
+        <div class="overflow-hidden flex-1 mx-3 my-0" id="pViewport">
+          <div
+            class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
+            id="pTrack"
+          ></div>
+        </div>
+        <button
+          class="bg-none text-[rgba(255,255,255,0.5)] size-6 flex items-center justify-center cursor-pointer shrink-0 text-xl rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+          id="pNext"
+        >
+          &#8250;
+        </button>
+      </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="bg-[#191e24] py-12 px-6 font-['Be_Vietnam_Pro',sans-serif]">
+      <h2
+        class="text-center text-[#d2ab7b] text-2xl sm:text-3xl lg:text-2xl font-bold uppercase mb-12"
+      >
+        Vì sao doanh nghiệp chọn VTALK?
+      </h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 max-w-7xl mx-auto lg:px-20"
+        id="whyGrid"
+      ></div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-12 px-6 bg-white font-['Be_Vietnam_Pro',sans-serif]">
+      <h2
+        class="text-center text-[23px] lg:text-2xl font-extrabold uppercase text-[#1a1a1a] mb-2"
+      >
+        Giải pháp đào tạo dành cho doanh nghiệp
+      </h2>
+      <p
+        class="text-center text-gray-700 text-sm sm:max-w-[80%] lg:max-w-[530px] mx-auto mb-8 leading-[1.4]"
+      >
+        Các chương trình đào tạo trọng điểm được thiết kế để giải quyết những
+        thách thức và đáp ứng mục tiêu phát triển của doanh nghiệp.
+      </p>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-3.5 max-w-[1140px] mx-auto"
+        id="solGrid"
+      ></div>
+      <div class="text-center mt-9">
+        <a
+          href="#"
+          class="inline-flex items-center gap-2 border-[1.5px] border-solid border-[#1a1a1a] text-[#1a1a1a] text-xs font-bold py-2 rounded-md px-6 no-underline uppercase transition-colors duration-200 hover:bg-[#1a1a1a] hover:text-white"
+        >
+          Xem tất cả chương trình
+          <svg
+            class="size-3 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section
+      class="bg-white py-12 px-6 md:px-16 font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <h2 class="text-center text-2xl font-extrabold uppercase text-[#1a1a1a]">
+        Quy trình đào tạo tại VTALK
+      </h2>
+      <div
+        class="grid grid-cols-1 lg:grid-cols-5 gap-6 mx-auto mt-12 relative before:hidden md:before:block before:content-[''] before:absolute before:top-[18px] before:left-[10%] before:right-[10%] before:h-[1px] before:bg-[repeating-linear-gradient(to_right,#d2ab7b_0,#d2ab7b_3px,transparent_3px,transparent_9px)] before:z-0"
+        id="processSteps"
+      ></div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section
+      class="pt-[68px] pb-[72px] px-6 bg-white font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <div
+        class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 max-w-[1140px] mx-auto items-start"
+      >
+        <div class="testi-left text-center lg:text-left">
+          <h2
+            class="text-2xl lg:text-[19px] font-extrabold uppercase leading-[1.35] text-[#1a1a1a] mb-2.5"
+          >
+            Khách hàng tiêu biểu
+          </h2>
+          <p
+            class="text-gray-600 text-base lg:text-[13px] leading-[1.6] lg:leading-[1.7] mb-4"
+          >
+            Hơn 500+ doanh nghiệp đã tin tưởng lựa chọn VTALK Academy
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center rounded-md gap-[5px] border-[1.5px] border-solid border-[#1a1a1a] text-[#1a1a1a] text-[11px] font-bold py-2.5 px-4 no-underline tracking-[0.5px] uppercase transition-colors duration-200 hover:bg-[#1a1a1a] hover:text-white"
+          >
+            Xem thêm khách hàng
+            <svg
+              class="size-3 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="relative">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5"
+            id="testiCards"
+          ></div>
+          <div class="flex justify-end gap-2 mt-3.5">
+            <button
+              class="bg-none border border-solid border-[#ddd] w-8 h-8 flex items-center justify-center cursor-pointer text-[#666] text-[14px] rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+              id="testiPrev"
+            >
+              &#8249;
+            </button>
+            <button
+              class="bg-none border border-solid border-[#ddd] w-8 h-8 flex items-center justify-center cursor-pointer text-[#666] text-[14px] rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+              id="testiNext"
+            >
+              &#8250;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section
+      class="bg-[#111] grid grid-cols-1 lg:grid-cols-2 overflow-hidden font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <div class="relative overflow-hidden hidden lg:block h-full w-full">
+        <img
+          class="absolute inset-0 w-full h-full object-cover block"
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80&fit=crop"
+          alt="Training room"
+        />
+      </div>
+
+      <div class="px-6 py-10 md:px-14 flex flex-col justify-center">
+        <h2
+          class="text-[22px] font-black uppercase text-[#d2ab7b] leading-[1.3] mb-2.5"
+        >
+          Bắt đầu nâng tầm đội ngũ cùng VTALK
+        </h2>
+        <p class="lg:w-[90%] text-white/70 text-[13px] leading-[1.7] mb-4">
+          Hãy để VTALK Academy thiết kế giải pháp đào tạo phù hợp nhất cho doanh
+          nghiệp của bạn.
+        </p>
+        <div class="flex items-center gap-4 flex-wrap">
+          <a
+            href="#"
+            class="bg-[#d2ab7b] text-[#1a1a1a] font-extrabold text-xs h-[42px] px-6 border-none cursor-pointer no-underline inline-flex items-center gap-1.5 uppercase tracking-[0.5px] transition-colors duration-200 rounded-[5px] hover:bg-[#c49a6a] max-[480px]:w-full max-[480px]:justify-center"
+          >
+            Nhận tư vấn miễn phí
+            <svg
+              class="size-3 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="tel:0978188468"
+            class="text-white border border-white/30 h-[42px] px-6 rounded-[5px] text-[12.5px] font-extrabold tracking-[0.5px] no-underline inline-flex items-center gap-2 hover:border-[#d2ab7b] hover:text-[#d2ab7b] transition-colors duration-200 max-[480px]:w-full max-[480px]:justify-center"
+          >
+            <svg
+              class="text-[#d2ab7b]"
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.14 2 2 0 012 .14h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16z"
+              />
+            </svg>
+            0978 188 468
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      /* ===================== DATA ===================== */
+
+      const PARTNERS = [
+        { name: "Vingroup", img: null },
+        { name: "viettel", img: null },
+        { name: "FPT", img: null },
+        { name: "BIDV", img: null },
+        { name: "Shopee", img: null },
+        { name: "TikTok", img: null },
+        { name: "Gene Solutions", img: null },
+      ];
+
+      const WHY_CARDS = [
+        {
+          title: 'Chương trình\n"Đo ni đóng giày"',
+          desc: "Thiết kế theo mục tiêu, đặc thù ngành nghề và văn hóa của từng doanh nghiệp.",
+          icon: `<svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24.5" stroke="#c9900c" stroke-width="1.2" opacity="0.3"/>
+      <path d="M16 18h20M16 26h13M16 34h8" stroke="#c9900c" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="34" cy="34" r="5" stroke="#c9900c" stroke-width="1.5"/>
+      <path d="M32 34h4" stroke="#c9900c" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>`,
+        },
+        {
+          title: "Giảng viên\nthực chiến",
+          desc: "Đội ngũ chuyên gia giàu kinh nghiệm đào tạo và tư vấn cho many doanh nghiệp lớn.",
+          icon: `<svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24.5" stroke="#c9900c" stroke-width="1.2" opacity="0.3"/>
+      <circle cx="26" cy="20" r="6" stroke="#c9900c" stroke-width="1.5"/>
+      <path d="M13 40c0-7.18 5.82-13 13-13s13 5.82 13 13" stroke="#c9900c" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M35 15l2.5 2.5 4-5" stroke="#c9900c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+        },
+        {
+          title: "Tính ứng dụng\ncao",
+          desc: "Nội dung bám sát thực tế, dễ áp dụng, đem lại kết quả rõ rệt sau đào tạo.",
+          icon: `<svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24.5" stroke="#c9900c" stroke-width="1.2" opacity="0.3"/>
+      <rect x="14" y="14" width="24" height="18" rx="2" stroke="#c9900c" stroke-width="1.5"/>
+      <path d="M18 34l5-7 4 4 4-7 5 5" stroke="#c9900c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 38h12M26 32v6" stroke="#c9900c" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>`,
+        },
+        {
+          title: "Đồng hành\nlâu dài",
+          desc: "Không chỉ là khóa học, VTALK trở thành đối tác phát triển năng lực bền vững của doanh nghiệp.",
+          icon: `<svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24.5" stroke="#c9900c" stroke-width="1.2" opacity="0.3"/>
+      <path d="M18 38c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="#c9900c" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="26" cy="22" r="5" stroke="#c9900c" stroke-width="1.5"/>
+      <path d="M12 38c0-5.52 3.58-10 8-12" stroke="#c9900c" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+      <path d="M40 38c0-5.52-3.58-10-8-12" stroke="#c9900c" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+    </svg>`,
+        },
+      ];
+
+      const SOLUTIONS = [
+        {
+          title: "Kỹ năng giao tiếp & ứng xử chuyên nghiệp",
+          desc: "Nâng cao năng lực giao tiếp, xây dựng hình ảnh chuyên nghiệp và tạo ấn tượng tích cực trong môi trường công sở.",
+          img: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=380&q=75&fit=crop",
+        },
+        {
+          title: "Kỹ năng thuyết trình & trình bày thuyết phục",
+          desc: "Truyền đạt ý tưởng rõ ràng, thuyết phục và tạo ảnh hưởng trong phòng ban, học viên, báo cáo và trình bày.",
+          img: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=380&q=75&fit=crop",
+        },
+        {
+          title: "Kỹ năng lãnh đạo & quản lý đội ngũ",
+          desc: "Phát triển năng lực lãnh đạo, tạo động lực và xây dựng đội ngũ hiệu suất cao.",
+          img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=380&q=75&fit=crop",
+        },
+        {
+          title: "Kỹ năng làm việc nhóm & tư duy hiệu suất",
+          desc: "Tăng cường sự phối hợp, tinh thần trách nhiệm và khả năng giải quyết vấn đề hiệu quả.",
+          img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=380&q=75&fit=crop",
+        },
+        {
+          title: "Kỹ năng bán hàng & chăm sóc khách hàng",
+          desc: "Nâng cao kỹ năng bán hàng, chăm sóc khách hàng và xây dựng trải nghiệm khách hàng vượt trội.",
+          img: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=380&q=75&fit=crop",
+        },
+      ];
+
+      const SOL_ICONS = [
+        `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="rgba(201,144,12,0.55)" stroke-width="1.3" stroke-linecap="round"><circle cx="17" cy="11" r="5"/><path d="M5 32c0-6.627 5.373-12 12-12s12 5.373 12 12"/><path d="M25 7l2 2 4-4"/></svg>`,
+        `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="rgba(201,144,12,0.55)" stroke-width="1.3" stroke-linecap="round"><rect x="3" y="5" width="28" height="20" rx="2"/><path d="M11 33h12M17 25v8"/><path d="M9 15l4 4 4-6 4 4"/></svg>`,
+        `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="rgba(201,144,12,0.55)" stroke-width="1.3" stroke-linecap="round"><circle cx="17" cy="9" r="4"/><circle cx="7" cy="25" r="3"/><circle cx="27" cy="25" r="3"/><path d="M17 13v6M11 23l6-2 6 2"/></svg>`,
+        `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="rgba(201,144,12,0.55)" stroke-width="1.3" stroke-linecap="round"><rect x="3" y="7" width="12" height="12" rx="1"/><rect x="19" y="7" width="12" height="12" rx="1"/><rect x="3" y="22" width="12" height="8" rx="1"/><rect x="19" y="22" width="12" height="8" rx="1"/></svg>`,
+        `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="rgba(201,144,12,0.55)" stroke-width="1.3" stroke-linecap="round"><path d="M5 28V13l12-8 12 8v15H5z"/><path d="M13 28v-8h8v8"/><path d="M9 19l8-4 8 4"/></svg>`,
+      ];
+
+      const PROCESS_STEPS = [
+        {
+          title: "Khảo sát\n& Phân tích",
+          desc: "Tìm hiểu nhu cầu, mục tiêu và thực trạng của doanh nghiệp.",
+          icon: `<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`,
+        },
+        {
+          title: "Thiết kế\nChương trình",
+          desc: 'Xây dựng chương trình "đo ni đóng giày" phù hợp với mục tiêu và đặc thù doanh nghiệp.',
+          icon: `<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>`,
+        },
+        {
+          title: "Triển khai\nĐào tạo",
+          desc: "Đào tạo theo phương pháp thực hành, ứng dụng tình huống thực tế.",
+          icon: `<path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>`,
+        },
+        {
+          title: "Đánh giá\n& Đo lường",
+          desc: "Đánh giá kết quả đầu ra, đo lường sự thay đổi về kỹ năng và hành vi.",
+          icon: `<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`,
+        },
+        {
+          title: "Đồng hành\nPhát triển",
+          desc: "Hỗ trợ sau đào tạo, tư vấn và nâng cấp chương trình định kỳ.",
+          icon: `<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+        },
+      ];
+
+      const TESTIMONIALS = [
+        {
+          logoClass: "logo-vingroup",
+          logoText: "Vingroup",
+          quote:
+            "Chương trình đào tạo của VTALK rất thực tế, nội dung sát với nhu cầu của từng phòng ban. Học viên áp dụng ngay vào công việc, hiệu quả rõ rệt.",
+          name: "Trần Mai Hoa",
+          role: "Giám đốc Nhân sự",
+        },
+        {
+          logoClass: "logo-viettel",
+          logoText: "viettel",
+          quote:
+            "Giảng viên chuyên nghiệp, phương pháp đào tạo hiện đại truyền cảm hứng. VTALK đã đồng hành cùng chúng tôi nâng cao năng lực đội ngũ cán bộ Viettel.",
+          name: "Nguyễn Mạnh Hùng",
+          role: "Trưởng Ban Đào tạo",
+        },
+        {
+          logoClass: "logo-bidv",
+          logoText: "BIDV",
+          quote:
+            "Chúng tôi đánh giá cao sự đồng hành của VTALK trong việc nâng cao năng lực giao tiếp và phục vụ khách hàng cho đội ngũ cán bộ BIDV.",
+          name: "Lê Thu Trang",
+          role: "Phó Giám đốc Khối Nhân sự",
+        },
+      ];
+
+      /* ===================== RENDER PARTNERS ===================== */
+      (function () {
+        const track = document.getElementById("pTrack");
+
+        function getLayout() {
+          const w = window.innerWidth;
+          if (w < 640) return { perPage: 2, gap: 16 };
+          if (w < 1024) return { perPage: 4, gap: 24 };
+          return { perPage: 6, gap: 32 };
+        }
+
+        const cloneBefore = [...PARTNERS, ...PARTNERS];
+        const cloneAfter = [...PARTNERS, ...PARTNERS];
+        const extendedPartners = [...cloneBefore, ...PARTNERS, ...cloneAfter];
+
+        track.innerHTML = extendedPartners
+          .map(
+            (p) => `
+        <div class="p-item shrink-0 flex items-center justify-center px-2 select-none">
+          ${
+            p.img
+              ? `<img class="max-h-7 max-w-full object-contain brightness-0 invert opacity-60 transition-opacity duration-200 hover:opacity-100" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                 <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
+              : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
+          }
+        </div>
+      `,
+          )
+          .join("");
+
+        let idx = cloneBefore.length;
+        let isTransitioning = false;
+
+        function update(withTransition = true) {
+          const items = track.children;
+          if (items.length === 0) return;
+
+          const { perPage, gap } = getLayout();
+          const itemWidth =
+            (track.parentElement.getBoundingClientRect().width -
+              (perPage - 1) * gap) /
+            perPage;
+
+          for (let item of items) {
+            item.style.width = `${itemWidth}px`;
+            item.style.marginRight = `${gap}px`;
+          }
+
+          const step = itemWidth + gap;
+
+          if (withTransition) {
+            track.style.transition = "transform 0.4s ease-out";
+            isTransitioning = true;
+          } else {
+            track.style.transition = "none";
+          }
+
+          track.style.transform = `translateX(-${idx * step}px)`;
+        }
+
+        track.addEventListener("transitionend", () => {
+          isTransitioning = false;
+          const cloneBeforeCount = PARTNERS.length * 2;
+
+          if (idx >= PARTNERS.length + cloneBeforeCount) {
+            idx = idx - PARTNERS.length;
+            update(false);
+          }
+          if (idx < cloneBeforeCount) {
+            idx = PARTNERS.length + idx;
+            update(false);
+          }
+        });
+
+        document.getElementById("pPrev").addEventListener("click", () => {
+          if (isTransitioning) return;
+          idx--;
+          update();
+        });
+
+        document.getElementById("pNext").addEventListener("click", () => {
+          if (isTransitioning) return;
+          idx++;
+          update();
+        });
+
+        window.addEventListener("resize", () => update(false));
+        setTimeout(() => update(false), 50);
+      })();
+
+      /* ===================== RENDER WHY ===================== */
+      document.getElementById("whyGrid").innerHTML = WHY_CARDS.map(
+        (c) => `
+          <div class="flex flex-col items-center text-center px-12 lg:px-3">
+            <div class="size-14 mx-auto mb-3 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">${c.icon}</div>
+            <h3 class="text-white/90 text-sm font-extrabold uppercase leading-1.5 mb-2">${c.title.replace("\n", "<br>")}</h3>
+            <p class="text-gray-400 text-xs leading-1.7 block">${c.desc}</p>
+          </div>
+        `,
+      ).join("");
+
+      /* ===================== RENDER SOLUTIONS ===================== */
+      document.getElementById("solGrid").innerHTML = SOLUTIONS.map(
+        (s, i) => `
+        <div class="border border-[#e5e5e5] overflow-hidden transition-all duration-200 hover:shadow-[0_5px_22px_rgba(0,0,0,0.08)] hover:-translate-y-0.5">
+          <div class="relative w-full h-40 overflow-hidden bg-gradient-to-br from-[#1a1508] to-[#231c0a] flex items-center justify-center">
+            <img class="absolute inset-0 w-full h-full object-cover" src="${s.img}" alt="${s.title.split("\n")[0]}" loading="lazy" onerror="this.style.display='none'">
+            ${SOL_ICONS[i]}
+          </div>
+          <div class="p-3.5 pb-4.5">
+            <h4 class="text-[15px] lg:text-[13px] font-extrabold uppercase text-[var(--text)] mb-2">${s.title.replace("\n", "<br>")}</h4>
+            <p class="text-[13px] lg:text-[11px] text-gray-700 leading-[1.7]">${s.desc}</p>
+            <a href="#" class="inline-flex items-center gap-1 text-[var(--gold)] text-xs font-bold uppercase no-underline mt-3 hover:underline">
+              Xem chi tiết 
+              <svg class="w-2 h-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                <path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+`,
+      ).join("");
+
+      /* ===================== RENDER PROCESS ===================== */
+      document.getElementById("processSteps").innerHTML = PROCESS_STEPS.map(
+        (s, index) => `
+      <div class="text-center px-4 relative z-[1] flex flex-col items-center mb-8 last:mb-0 md:mb-0">
+        <div class="relative w-full flex items-center justify-center mb-6 h-[40px]">
+          <div class="absolute right-[15%] top-[-25px] text-[40px] font-light text-[#f0f0f0] select-none font-sans leading-none z-0">
+            0${index + 1}
+          </div>
+          <div class="absolute right-[11%] top-[-4px] w-[5px] h-[5px] bg-[#d2ab7b] rounded-full hidden md:block z-10"></div>
+          <div class="relative z-10 flex items-center justify-center bg-white px-4">
+            <svg class="size-10 stroke-[#d2ab7b] fill-none stroke-[1.2] stroke-linecap-round stroke-linejoin-round" viewBox="0 0 24 24">
+              ${s.icon}
+            </svg>
+          </div>
+        </div>
+        <h4 class="text-base lg:text-sm font-extrabold uppercase leading-[1.4] text-[#1a1a1a] mb-2 min-h-[36px] flex items-center justify-center">
+          ${s.title.replace("\n", "<br>")}
+        </h4>
+        <p class="text-sm lg:text-xs text-gray-600 leading-[1.6] w-[80%] lg:w-[200px]">
+          ${s.desc}
+        </p>
+      </div>
+    `,
+      ).join("");
+
+      /* ===================== RENDER TESTIMONIALS ===================== */
+      document.getElementById("testiCards").innerHTML = TESTIMONIALS.map(
+        (t) => `
+          <div class="border border-[#e5e5e5] p-5 pb-5.5">
+            <div class="mb-3">
+              <span class="text-xl lg:text-base font-black ${t.logoClass}">${t.logoText}</span>
+            </div>
+            <p class="text-sm lg:text-xs text-gray-600 leading-[1.8]">${t.quote}</p>
+            <div class="my-4 h-[0.5px] w-[40%] bg-black"></div>
+            <div>
+              <b class="block text-[14.5px] lg:text-[12.5px] font-bold text-[var(--text)]">${t.name}</b>
+              <span class="text-[13px] lg:text-[11px] text-gray-500">${t.role}</span>
+            </div>
+          </div>
+`,
+      ).join("");
+    </script>
+  </body>
+</html>
