@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Học viện Kỹ năng VTALK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        important: true,
+        theme: {
+          extend: {
+            colors: {
+              brand: "#d2ab7b",
+              dark: "#0D0D1A",
+              card: "#13132A",
+            },
+            fontFamily: {
+              sans: ["Be Vietnam Pro", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- Hero Section -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="relative overflow-hidden bg-[#0d0d1a] flex items-center">
+      <div class="hidden lg:block absolute inset-0 z-0">
+        <img
+          src="./images/hero.jpg"
+          alt="Hero Background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[25%] from-black/80 via-black/10 to-transparent"
+        ></div>
+      </div>
+
+      <div
+        class="relative z-10 mx-auto px-6 lg:px-12 py-10 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 w-full"
+      >
+        <div class="flex-1 text-white lg:w-[50%]">
+          <h1
+            class="text-3xl sm:text-4xl font-extrabold sm:font-bold text-white uppercase"
+          >
+            KIẾN TẠO KỸ NĂNG
+            <span
+              class="block text-3xl sm:text-5xl text-[#e5aa56] mt-3 lg:mt-4 mb-4"
+            >
+              DẪN LỐI TƯƠNG LAI
+            </span>
+          </h1>
+          <p
+            class="text-gray-300 text-sm sm:text-[15px] lg:text-sm lg:max-w-md mb-5 leading-relaxed"
+          >
+            VTALK Academy đồng hành cùng bạn phát triển kỹ năng thiết yếu để tự
+            tin giao tiếp, thuyết trình và làm chủ công nghệ trong thời đại mới.
+          </p>
+
+          <div
+            id="featuresContainer"
+            class="grid grid-cols-2 sm:grid-cols-4 lg:flex flex-wrap items-center gap-x-5 gap-y-3 mb-6 text-xs text-gray-200"
+          ></div>
+
+          <div class="flex gap-3 flex-wrap">
+            <a
+              href="/khoa-hoc"
+              class="w-full lg:w-fit bg-[#e5aa56] text-black font-bold px-5 py-2.5 text-xs uppercase flex items-center justify-center lg:justify-start gap-2 hover:bg-[#f5b862] transition rounded-md active:scale-[1.04]"
+            >
+              KHÁM PHÁ KHÓA HỌC
+              <svg
+                class="size-3"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <path
+                  d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+                />
+              </svg>
+            </a>
+            <a
+              href="/gioi-thieu"
+              class="w-full lg:w-fit group border-[1.5px] border-white/40 bg-black/5 lg:bg-black/40 text-white font-bold px-5 py-2.5 text-xs uppercase flex items-center justify-center lg:justify-start gap-2 hover:bg-white hover:text-black transition rounded-md active:scale-[1.04]"
+            >
+              <span
+                class="w-5 h-5 border lg:border-[1.5px] border-white group-hover:border-black/40 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2.5 h-2.5 fill-current ml-0.5"
+                  viewBox="0 0 10 10"
+                >
+                  <polygon points="2,1 9,5 2,9" />
+                </svg>
+              </span>
+              VỀ VTALK ACADEMY
+            </a>
+          </div>
+        </div>
+
+        <div
+          id="statsContainer"
+          class="grid grid-cols-1 mx-auto shrink-0 w-full lg:w-fit bg-black/15 lg:bg-black/60 border border-white/40 lg:border-white/20 rounded-lg p-5 gap-4"
+        ></div>
+      </div>
+
+      <script>
+        const FEATURES_DATA = [
+          { name: "Kỹ năng thực tiễn", icon: "./images/icon color/33.png" },
+          { name: "Giảng viên hàng đầu", icon: "./images/icon color/26.png" },
+          { name: "Ứng dụng công nghệ", icon: "./images/icon color/12.png" },
+          { name: "Học tập trải nghiệm", icon: "./images/icon color/23.png" },
+        ];
+
+        const STATS_DATA = [
+          {
+            value: "50.000+",
+            label: "Học viên đã tin tưởng",
+            icon: "./images/icon color/5.png",
+          },
+          {
+            value: "200+",
+            label: "Chương trình đào tạo",
+            icon: "./images/icon color/23.png",
+          },
+          {
+            value: "500+",
+            label: "Doanh nghiệp đồng hành",
+            icon: "./images/icon color/3.png",
+          },
+          {
+            value: "10+ NĂM",
+            label: "Kiến tạo giá trị",
+            icon: "./images/icon color/32.png",
+          },
+        ];
+
+        document.getElementById("featuresContainer").innerHTML =
+          FEATURES_DATA.map(
+            (item) => `
+      <span class="text-[13px] flex items-center gap-1.5">
+        <img src="${item.icon}" alt="Icon" class="size-5 object-cover" />
+        ${item.name}
+      </span>
+    `,
+          ).join("");
+
+        document.getElementById("statsContainer").innerHTML = STATS_DATA.map(
+          (item) => `
+      <div class="flex items-center gap-3 text-white">
+        <img src="${item.icon}" alt="" class="size-8 object-cover flex-shrink-0" />
+        <div>
+          <div class="text-xl lg:text-lg font-bold">${item.value}</div>
+          <div class="text-sm lg:text-xs text-white/65">${item.label}</div>
+        </div>
+      </div>
+    `,
+        ).join("");
+      </script>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- Media And Press Section -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="bg-[#070e16] py-[20px] px-0 pb-[22px] border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <p
+        class="text-center text-base lg:text-lg uppercase text-white font-bold mb-4"
+      >
+        Báo chí & Truyền thông đưa tin
+      </p>
+      <div class="flex items-center lg:w-[95%] mx-auto px-4 py-0">
+        <button
+          class="bg-none text-[rgba(255,255,255,0.5)] size-6 flex items-center justify-center cursor-pointer shrink-0 text-3xl rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+          id="pPrev"
+        >
+          &#8249;
+        </button>
+        <div class="overflow-hidden flex-1 mx-3 my-0" id="pViewport">
+          <div
+            class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
+            id="pTrack"
+          ></div>
+        </div>
+        <button
+          class="bg-none text-[rgba(255,255,255,0.5)] size-6 flex items-center justify-center cursor-pointer shrink-0 text-3xl rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
+          id="pNext"
+        >
+          &#8250;
+        </button>
+      </div>
+
+      <script>
+        const PARTNERS = [
+          {
+            name: "Vingroup",
+            img: "../dao-tao-doanh-nghiep/images/VingroupLogo.png",
+          },
+          {
+            name: "viettel",
+            img: "../dao-tao-doanh-nghiep/images/viettel-logo.png",
+          },
+          { name: "FPT", img: null },
+          { name: "BIDV", img: null },
+          { name: "Shopee", img: null },
+          { name: "TikTok", img: null },
+          { name: "Gene Solutions", img: null },
+        ];
+
+        (function () {
+          const track = document.getElementById("pTrack");
+          if (!track || !PARTNERS.length) return;
+
+          function getLayout() {
+            const w = window.innerWidth;
+            if (w < 640) return { perPage: 2, gap: 16 };
+            if (w < 1024) return { perPage: 4, gap: 24 };
+            return { perPage: 6, gap: 32 };
+          }
+
+          const cloneBefore = [...PARTNERS, ...PARTNERS];
+          const cloneAfter = [...PARTNERS, ...PARTNERS];
+          const extendedPartners = [...cloneBefore, ...PARTNERS, ...cloneAfter];
+
+          track.innerHTML = extendedPartners
+            .map(
+              (p) => `
+                <div class="p-item shrink-0 flex items-center justify-center px-2 select-none">
+                  ${
+                    p.img
+                      ? `<img class="max-h-10 max-w-full object-contain rounded-md" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
+                      : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
+                  }
+                </div>
+              `,
+            )
+            .join("");
+
+          let idx = cloneBefore.length;
+          let isTransitioning = false;
+
+          function update(withTransition = true) {
+            const items = track.children;
+            if (items.length === 0) return;
+
+            const { perPage, gap } = getLayout();
+            const viewportWidth =
+              track.parentElement.getBoundingClientRect().width;
+            const itemWidth = (viewportWidth - (perPage - 1) * gap) / perPage;
+
+            for (let i = 0; i < items.length; i++) {
+              items[i].style.width = `${itemWidth}px`;
+              if (i === items.length - 1) {
+                items[i].style.marginRight = "0px";
+              } else {
+                items[i].style.marginRight = `${gap}px`;
+              }
+            }
+
+            const step = itemWidth + gap;
+
+            if (withTransition) {
+              track.style.transition = "transform 0.4s ease-out";
+              isTransitioning = true;
+            } else {
+              track.style.transition = "none";
+            }
+
+            track.style.transform = `translateX(-${idx * step}px)`;
+          }
+
+          track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            const cloneBeforeCount = cloneBefore.length;
+
+            if (idx >= cloneBeforeCount + PARTNERS.length) {
+              idx = idx - PARTNERS.length;
+              update(false);
+            } else if (idx < cloneBeforeCount) {
+              idx = idx + PARTNERS.length;
+              update(false);
+            }
+          });
+
+          document.getElementById("pPrev").addEventListener("click", () => {
+            if (isTransitioning) return;
+            idx--;
+            update();
+          });
+
+          document.getElementById("pNext").addEventListener("click", () => {
+            if (isTransitioning) return;
+            idx++;
+            update();
+          });
+
+          window.addEventListener("resize", () => {
+            update(false);
+          });
+
+          setTimeout(() => {
+            update(false);
+          }, 150);
+        })();
+      </script>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- Achievement And Milestones Section -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="relative bg-[#0b0f19] text-white py-12 px-4 font-sans selection:bg-[#e5aa56] selection:text-black bg-cover bg-center bg-no-repeat"
+      style="
+        background-image: url(&quot;./images/achievement-and-milestones-bg-img.jpg&quot;);
+      "
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b h-16 from-black to-transparent"
+      ></div>
+      <div class="mx-auto">
+        <h2
+          class="text-xl lg:text-2xl text-center font-bold text-white uppercase mb-8"
+        >
+          Thành tích & Dấu ấn VTALK
+        </h2>
+
+        <div
+          id="vtalk-achievements-grid"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 px-6 lg:px-8 gap-4 relative z-10"
+        ></div>
+      </div>
+    </section>
+
+    <script>
+      (() => {
+        const achievements = [
+          {
+            imgSrc: "./images/icon color/28.png",
+            number: "10+",
+            text: "Năm kinh nghiệm trong lĩnh vực đào tạo",
+          },
+          {
+            imgSrc: "./images/icon color/5.png",
+            number: "50.000+",
+            text: "Học viên đã tham gia",
+          },
+          {
+            imgSrc: "./images/icon color/23.png",
+            number: "200+",
+            text: "Chương trình đã triển khai",
+          },
+          {
+            imgSrc: "./images/icon color/32.png",
+            number: "98%",
+            text: "Học viên hài lòng và giới thiệu lại",
+          },
+          {
+            imgSrc: "./images/icon color/3.png",
+            number: "500+",
+            text: "Doanh nghiệp đồng hành",
+          },
+          {
+            imgSrc: "./images/icon color/29.png",
+            number: "20+",
+            text: "Giải thưởng & báng khen uy tín",
+          },
+        ];
+
+        const gridContainer = document.getElementById(
+          "vtalk-achievements-grid",
+        );
+
+        gridContainer.innerHTML = achievements
+          .map(
+            (item) => `
+      <div class="flex flex-col items-center text-center p-4 bg-white/5 rounded-xl border border-gray-800/60 backdrop-blur-sm transition-all duration-200 hover:border-white/20 hover:bg-white/7 hover:scale-[1.04]">
+        <div class="mb-2 flex items-center justify-center">
+          <img src="${item.imgSrc}" alt="${item.text}" class="w-10 size-12 object-cover" loading="lazy" />
+        </div>
+        <div class="text-2xl font-extrabold text-[#e5aa56] mb-1">
+          ${item.number}
+        </div>
+        <p class="text-xs sm:text-[13px] text-white/60 font-medium leading-relaxed">
+          ${item.text}
+        </p>
+      </div>
+    `,
+          )
+          .join("");
+      })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- Courses Section -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="bg-[#0b0f19] text-white py-12 px-4 lg:px-6 font-sans selection:bg-[#e5aa56] selection:text-black"
+    >
+      <div class="mx-auto">
+        <div
+          class="flex flex-col lg:flex-row gap-3 justify-between items-center mb-6"
+        >
+          <h2 class="text-2xl font-bold text-gray-200 uppercase">
+            Các khóa học chính
+          </h2>
+          <a
+            href="/khoa-hoc"
+            class="text-sm text-[#e5aa56] font-medium flex items-center gap-1 transition-colors group"
+          >
+            <span class="group-hover:underline">Xem tất cả khóa học</span>
+            <svg
+              class="size-2.5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div
+          id="vtalk-courses-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
+        ></div>
+      </div>
+    </section>
+
+    <script>
+      (() => {
+        const courses = [
+          {
+            bgImage: "./images/course-1.jpg",
+            title: "KỸ NĂNG<br>GIAO TIẾP",
+            desc: "Giao tiếp tự tin, kết nối và tạo ảnh hưởng mạnh mẽ.",
+            link: "#",
+          },
+          {
+            bgImage: "./images/course-2.jpg",
+            title: "KỸ NĂNG<br>THUYẾT TRÌNH",
+            desc: "Thuyết trình ấn tượng, truyền cảm hứng mọi khán giả.",
+            link: "#",
+          },
+          {
+            bgImage: "./images/course-3.jpg",
+            title: "ỨNG DỤNG<br>AI TẠO SINH",
+            desc: "Ứng dụng AI tối ưu công việc, bứt phá hiệu suất.",
+            link: "#",
+          },
+        ];
+
+        const gridContainer = document.getElementById("vtalk-courses-grid");
+
+        gridContainer.innerHTML = courses
+          .map(
+            (item) => `
+      <div class="relative rounded-2xl border border-gray-800/60 overflow-hidden bg-cover bg-center flex flex-col justify-between p-8 group transition-all duration-300 hover:scale-[1.04]" 
+            style="background-image: url('${item.bgImage}');">
+        <div class="flex flex-col gap-3 lg:w-[50%]">
+          <h3 class="text-xl font-bold text-white uppercase leading-tight">
+            ${item.title}
+          </h3>
+          <p class="text-sm text-gray-400 font-medium leading-relaxed bg-[#0b0f19]/40 backdrop-blur-xs rounded-lg p-1 inline-block">
+            ${item.desc}
+          </p>
+        </div>
+        <div>
+          <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#e5aa56] transition-all hover:underline">
+            Xem chi tiết
+            <svg
+              class="size-2.5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    `,
+          )
+          .join("");
+      })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- Instructors Section -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="bg-[#0b0f19] text-white py-12 px-6 font-sans selection:bg-[#e5aa56] selection:text-black border-t border-white/5"
+    >
+      <div class="mx-auto">
+        <div
+          class="flex flex-col lg:flex-row gap-3 justify-between items-center mb-6"
+        >
+          <h2 class="text-2xl font-bold text-gray-200 uppercase">
+            Đội ngũ giảng viên
+          </h2>
+          <a
+            href="#"
+            class="text-sm text-[#e5aa56] font-medium flex items-center gap-1 transition-colors group"
+          >
+            <span class="group-hover:underline">Xem tất cả giảng viên</span>
+            <svg
+              class="size-2.5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div
+          class="flex items-center w-full mx-auto relative group/slider px-10 lg:px-12"
+        >
+          <button
+            class="absolute left-0 lg:-left-2 z-20 bg-[#131926]/80 text-gray-400 hover:text-[#e5aa56] border border-gray-800 hover:border-[#e5aa56] size-10 flex items-center justify-center cursor-pointer text-2xl rounded-full transition-all duration-200 shadow-lg"
+            id="insPrev"
+          >
+            &#8249;
+          </button>
+
+          <div class="overflow-hidden flex-1" id="insViewport">
+            <div
+              class="flex transition-transform duration-[0.4s] ease-out will-change-transform"
+              id="insTrack"
+            ></div>
+          </div>
+
+          <button
+            class="absolute right-0 lg:-right-2 z-20 bg-[#131926]/80 text-gray-400 hover:text-[#e5aa56] border border-gray-800 hover:border-[#e5aa56] size-10 flex items-center justify-center cursor-pointer text-2xl rounded-full transition-all duration-200 shadow-lg"
+            id="insNext"
+          >
+            &#8250;
+          </button>
+        </div>
+      </div>
+
+      <script>
+        const INSTRUCTORS = [
+          {
+            name: "MR. VƯƠNG QUỐC BẢO",
+            role: "Founder & CEO VTALK Academy",
+            desc: "Chuyên gia đào tạo kỹ năng giao tiếp, thuyết trình",
+            img: "path/to/vuong-quoc-bao.png",
+          },
+          {
+            name: "MS. HƯƠNG GIANG",
+            role: "Giảng viên cấp cao",
+            desc: "Chuyên gia kỹ năng giao tiếp & xây dựng hình ảnh",
+            img: "path/to/huong-giang.png",
+          },
+          {
+            name: "MR. TRÍ TUỆ",
+            role: "Giảng viên cấp cao",
+            desc: "Chuyên gia kỹ năng thuyết trình",
+            img: "path/to/tri-tue.png",
+          },
+          {
+            name: "MS. MINH ANH",
+            role: "Giảng viên cấp cao",
+            desc: "Chuyên gia ứng dụng AI & tư duy sáng tạo",
+            img: "path/to/minh-anh.png",
+          },
+          {
+            name: "MR. NHẬT MINH",
+            role: "Giảng viên cấp cao",
+            desc: "Chuyên gia đào tạo doanh nghiệp",
+            img: "path/to/nhat-minh.png",
+          },
+        ];
+
+        (function () {
+          const track = document.getElementById("insTrack");
+          if (!track || !INSTRUCTORS.length) return;
+
+          function getLayout() {
+            const w = window.innerWidth;
+            if (w < 640) return { perPage: 1, gap: 16 };
+            if (w < 768) return { perPage: 2, gap: 16 };
+            if (w < 1024) return { perPage: 3, gap: 20 };
+            if (w < 1280) return { perPage: 4, gap: 24 };
+            return { perPage: 5, gap: 24 };
+          }
+
+          const cloneBefore = [...INSTRUCTORS, ...INSTRUCTORS];
+          const cloneAfter = [...INSTRUCTORS, ...INSTRUCTORS];
+          const extendedInstructors = [
+            ...cloneBefore,
+            ...INSTRUCTORS,
+            ...cloneAfter,
+          ];
+
+          track.innerHTML = extendedInstructors
+            .map(
+              (ins) => `
+          <div class="p-item shrink-0 flex flex-col items-center p-4 bg-white/5 rounded-xl border border-gray-800/60 backdrop-blur-sm select-none transition-all duration-200 hover:border-[#e5aa56] hover:bg-white/8">
+            <div class="w-full flex justify-center mb-4 overflow-hidden rounded-xl bg-[#0b0f19]/50 aspect-[4/5]">
+              <img class="w-full h-full object-cover pointer-events-none" src="${ins.img}" alt="${ins.name}">
+            </div>
+            <div class="text-center w-full flex flex-col gap-1.5">
+              <h3 class="text-base font-bold text-[#e5aa56] uppercase leading-tight">
+                ${ins.name}
+              </h3>
+              <p class="text-xs lg:text-[13px] text-gray-300 font-semibold">
+                ${ins.role}
+              </p>
+              <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                ${ins.desc}
+              </p>
+            </div>
+          </div>
+        `,
+            )
+            .join("");
+
+          let idx = cloneBefore.length;
+          let isTransitioning = false;
+
+          function update(withTransition = true) {
+            const items = track.children;
+            if (items.length === 0) return;
+
+            const { perPage, gap } = getLayout();
+            const viewportWidth =
+              track.parentElement.getBoundingClientRect().width;
+            const itemWidth = (viewportWidth - (perPage - 1) * gap) / perPage;
+
+            for (let i = 0; i < items.length; i++) {
+              items[i].style.width = `${itemWidth}px`;
+              if (i === items.length - 1) {
+                items[i].style.marginRight = "0px";
+              } else {
+                items[i].style.marginRight = `${gap}px`;
+              }
+            }
+
+            const step = itemWidth + gap;
+
+            if (withTransition) {
+              track.style.transition = "transform 0.4s ease-out";
+              isTransitioning = true;
+            } else {
+              track.style.transition = "none";
+            }
+
+            track.style.transform = `translateX(-${idx * step}px)`;
+          }
+
+          track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            const cloneBeforeCount = cloneBefore.length;
+
+            if (idx >= cloneBeforeCount + INSTRUCTORS.length) {
+              idx = idx - INSTRUCTORS.length;
+              update(false);
+            } else if (idx < cloneBeforeCount) {
+              idx = idx + INSTRUCTORS.length;
+              update(false);
+            }
+          });
+
+          document.getElementById("insPrev").addEventListener("click", () => {
+            if (isTransitioning) return;
+            idx--;
+            update();
+          });
+
+          document.getElementById("insNext").addEventListener("click", () => {
+            if (isTransitioning) return;
+            idx++;
+            update();
+          });
+
+          window.addEventListener("resize", () => {
+            update(false);
+          });
+
+          setTimeout(() => {
+            update(false);
+          }, 150);
+        })();
+      </script>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- Vtalk In Action Section -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="bg-[#0b0f19] text-white py-12 px-6 font-sans border-t border-white/5"
+    >
+      <div class="mx-auto">
+        <div class="flex justify-center lg:justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-[#e5e7eb] uppercase m-0">
+            Vtalk In Action
+          </h2>
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-[5fr_3fr_4fr] gap-8 items-start"
+        >
+          <div
+            class="relative w-full aspect-video rounded-2xl border border-gray-700 overflow-hidden bg-black"
+          >
+            <iframe
+              id="vtalkMainVideo"
+              class="w-full h-full absolute inset-0"
+              src="https://www.youtube.com/embed/wDchsz8nmbo?list=RDwDchsz8nmbo"
+              title="VTALK Video Player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="flex flex-col gap-4 text-left justify-center h-full">
+            <h3
+              class="text-lg sm:text-xl font-bold text-[#f3f4f6] leading-snug m-0"
+            >
+              Cảm nhận từ học viên<br class="hidden sm:inline" />và những khoảnh
+              khắc ấn tượng
+            </h3>
+            <p
+              class="text-[0.85rem] text-gray-400 font-medium leading-relaxed m-0"
+            >
+              Hàng ngàn học viên đã thay đổi tư duy, phát triển kỹ năng và đạt
+              được bước tiến mới cùng VTALK Academy.
+            </p>
+            <div class="pt-2">
+              <a
+                href="#"
+                class="w-full lg:w-fit inline-block bg-[#e5aa56] hover:bg-[#f5b862] text-black text-[0.8rem] font-bold uppercase py-3 px-6 rounded-lg no-underline text-center"
+                >Xem thêm video</a
+              >
+            </div>
+          </div>
+          <div
+            id="vtalk-playlist-container"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 w-full"
+          ></div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const PLAYLIST = [
+            {
+              title: "Học viên nói gì về VTALK?",
+              src: "https://www.youtube.com/embed/wDchsz8nmbo?list=RDwDchsz8nmbo",
+            },
+            {
+              title: "Hành trình kiến tạo giá trị",
+              src: "https://www.youtube.com/embed/K4TOrB7at0Y",
+            },
+            {
+              title: "Những khoảnh khắc đáng nhớ",
+              src: "https://www.youtube.com/embed/LXb3EKWsInQ",
+            },
+          ];
+
+          const container = document.getElementById("vtalk-playlist-container");
+          const iframe = document.getElementById("vtalkMainVideo");
+          if (!container || !iframe) return;
+
+          container.innerHTML = PLAYLIST.map(
+            (v, i) => `
+      <div class="pitem ${i === 0 ? "border-[#f59e0b]/40 bg-[#161d2d]" : "border-gray-700/40 bg-[#131926]/40"} flex items-center gap-3 p-2.5 rounded-xl border cursor-pointer transition-all duration-250" data-src="${v.src}">
+        <div class="relative w-28 aspect-video rounded-lg overflow-hidden bg-black shrink-0 border border-gray-700/80">
+          <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="${v.src}" frameborder="0" allow="encrypted-media"></iframe>
+          <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <div class="w-7 h-7 bg-black/60 rounded-full flex items-center justify-center border border-white/40 text-white text-[0.7rem]">&#9654;</div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="text-[0.75rem] font-semibold text-[#d1d5db] leading-df m-0 line-clamp-2">${v.title}</h4>
+        </div>
+      </div>
+    `,
+          ).join("");
+
+          container.querySelectorAll(".pitem").forEach((el) => {
+            el.addEventListener("click", function () {
+              container.querySelectorAll(".pitem").forEach((e) => {
+                e.classList.remove("border-[#f59e0b]/40", "bg-[#161d2d]");
+                e.classList.add("border-gray-700/40", "bg-[#131926]/40");
+              });
+              this.classList.remove("border-gray-700/40", "bg-[#131926]/40");
+              this.classList.add("border-[#f59e0b]/40", "bg-[#161d2d]");
+
+              let targetSrc = this.dataset.src;
+              if (targetSrc.includes("?")) {
+                iframe.src = targetSrc + "&autoplay=1";
+              } else {
+                iframe.src = targetSrc + "?autoplay=1";
+              }
+            });
+          });
+        })();
+      </script>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- IN-HOUSE TRAINING & PARTNERS -->
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- CERTIFICATIONS -->
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- ACTIVITY GALLERY -->
+    <!-- ═══════════════════════════════════════════════════ -->
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- STUDENT REVIEWS -->
+    <!-- ═══════════════════════════════════════════════════ -->
+  </body>
+</html>
