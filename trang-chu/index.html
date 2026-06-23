@@ -430,7 +430,7 @@
 
         <div
           id="vtalk-courses-grid"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
+          class="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
         ></div>
       </div>
     </section>
@@ -737,8 +737,7 @@
             <h3
               class="text-lg sm:text-xl font-bold text-[#f3f4f6] leading-snug m-0"
             >
-              Cảm nhận từ học viên<br class="hidden sm:inline" />và những khoảnh
-              khắc ấn tượng
+              Cảm nhận từ học viên và những khoảnh khắc ấn tượng
             </h3>
             <p
               class="text-[0.85rem] text-gray-400 font-medium leading-relaxed m-0"
@@ -784,18 +783,18 @@
 
           container.innerHTML = PLAYLIST.map(
             (v, i) => `
-      <div class="pitem ${i === 0 ? "border-[#f59e0b]/40 bg-[#161d2d]" : "border-gray-700/40 bg-[#131926]/40"} flex items-center gap-3 p-2.5 rounded-xl border cursor-pointer transition-all duration-250" data-src="${v.src}">
-        <div class="relative w-28 aspect-video rounded-lg overflow-hidden bg-black shrink-0 border border-gray-700/80">
-          <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="${v.src}" frameborder="0" allow="encrypted-media"></iframe>
-          <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <div class="w-7 h-7 bg-black/60 rounded-full flex items-center justify-center border border-white/40 text-white text-[0.7rem]">&#9654;</div>
-          </div>
-        </div>
-        <div class="flex-1 min-w-0">
-          <h4 class="text-[0.75rem] font-semibold text-[#d1d5db] leading-df m-0 line-clamp-2">${v.title}</h4>
-        </div>
-      </div>
-    `,
+                      <div class="pitem ${i === 0 ? "border-[#f59e0b]/40 bg-[#161d2d]" : "border-gray-700/40 bg-[#131926]/40"} flex items-center gap-3 p-2.5 rounded-xl border cursor-pointer transition-all duration-250" data-src="${v.src}">
+                        <div class="relative w-28 aspect-video rounded-lg overflow-hidden bg-black shrink-0 border border-gray-700/80">
+                          <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="${v.src}" frameborder="0" allow="encrypted-media"></iframe>
+                          <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <div class="w-7 h-7 bg-black/60 rounded-full flex items-center justify-center border border-white/40 text-white text-[0.7rem]">&#9654;</div>
+                          </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                          <h4 class="text-[0.75rem] font-semibold text-[#d1d5db] leading-df m-0 line-clamp-2">${v.title}</h4>
+                        </div>
+                      </div>
+                    `,
           ).join("");
 
           container.querySelectorAll(".pitem").forEach((el) => {
@@ -820,19 +819,635 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <!-- IN-HOUSE TRAINING & PARTNERS -->
+    <!-- Corporate Training Section -->
     <!-- ═══════════════════════════════════════════════════ -->
+    <section class="bg-[#0b0f19] text-white py-8 px-6 font-sans">
+      <div class="mx-auto border border-white/20 rounded-lg">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-10 items-stretch rounded-lg border border-gray-800/60 overflow-hidden"
+        >
+          <div
+            class="lg:col-span-6 flex flex-col lg:flex-row items-stretch bg-[#0b0f19] relative overflow-hidden"
+          >
+            <div
+              class="w-full lg:w-[50%] p-6 flex flex-col justify-between gap-4 relative z-10 bg-[#0b0f19] shrink-0"
+            >
+              <div class="flex flex-col gap-2">
+                <h2
+                  class="text-2xl font-extrabold text-[#e5aa56] uppercase leading-tight"
+                >
+                  Đào tạo In-house & Doanh nghiệp
+                </h2>
+                <p class="text-sm text-gray-300 font-medium leading-relaxed">
+                  Giải pháp đào tạo thiết kế riêng theo nhu cầu của tổ chức,
+                  giúp nâng cao năng lực đội ngũ và hiệu suất làm việc.
+                </p>
+              </div>
+
+              <div
+                id="vtalk-features-container"
+                class="flex flex-col gap-3"
+              ></div>
+
+              <div>
+                <a
+                  href="#"
+                  class="w-full lg:w-fit inline-flex items-center justify-center gap-2 bg-[#e5aa56] hover:bg-[#f5b862] text-black text-xs lg:text-sm font-bold uppercase py-3 px-8 rounded-lg transition-colors shadow-lg shadow-[#e5aa56]/10"
+                >
+                  Tìm hiểu ngay
+                  <svg
+                    class="size-2.5 fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="w-full relative bg-cover bg-center bg-no-repeat grow"
+              style="background-image: url(&quot;./images/Corporate.jpg&quot;)"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-[#0b0f19] via-30% via-[#0b0f19]/30 to-transparent"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-4 flex flex-col items-center justify-center bg-white/95 text-black p-6"
+          >
+            <p class="text-xl font-bold text-gray-800 uppercase mb-6">
+              Đối tác tiêu biểu
+            </p>
+
+            <div
+              id="vtalk-partners-grid"
+              class="grid grid-cols-3 sm:grid-cols-4 gap-4 w-full items-center justify-items-center mb-6"
+            ></div>
+
+            <script>
+              const rawData =
+                "Nội dung thiết kế riêng<br>Giảng viên giàu kinh nghiệm<br/>Linh hoạt thời gian & Hình thức<br />Hiệu quả đo lường rõ ràng";
+
+              document.getElementById("vtalk-features-container").innerHTML =
+                rawData
+                  .split(/<br\s*\/?>/i)
+                  .filter((text) => text.trim())
+                  .map(
+                    (text) => `
+                      <div class="flex items-start gap-3">
+                        <span class="text-[#e5aa56] text-base leading-none">✓</span>
+                        <span class="text-sm text-gray-300">${text.trim()}</span>
+                      </div>
+                    `,
+                  )
+                  .join("");
+
+              const partnersData = [
+                { image: "null", name: "Vingroup" },
+                {
+                  image: "../dao-tao-doanh-nghiep/images/viettel-logo.png",
+                  name: "Viettel",
+                },
+                { image: "./images/bidv_logo.png", name: "BIDV" },
+                { image: "./images/fpt_logo.png", name: "FPT" },
+                { image: "./images/shopee_logo.png", name: "Shopee" },
+                { image: "./images/samsung_logo.png", name: "Samsung" },
+                { image: "./images/pnj_logo.png", name: "PNJ" },
+                { image: "./images/mb_logo.png", name: "MB" },
+              ];
+
+              document.getElementById("vtalk-partners-grid").innerHTML =
+                partnersData
+                  .map((partner) => {
+                    const hasImage =
+                      partner.image &&
+                      partner.image !== "null" &&
+                      partner.image !== "";
+
+                    return `<div class="partner-item flex items-center justify-center h-10 w-full px-1">
+                              ${
+                                hasImage
+                                  ? `<img src="${partner.image}" alt="${partner.name}" class="max-h-full max-w-full object-contain" onerror="const span = document.createElement('span'); span.className='text-xs font-semibold text-gray-800 text-center leading-tight'; span.innerText='${partner.name}'; this.replaceWith(span);" />`
+                                  : `<span class="text-sm font-semibold text-gray-800 text-center leading-tight">${partner.name}</span>`
+                              }
+                            </div>`;
+                  })
+                  .join("");
+            </script>
+
+            <a
+              href="#"
+              class="w-fit text-center bg-transparent hover:bg-black border border-black hover:border-transparent hover:text-white text-xs font-bold uppercase py-3 px-4 rounded-lg transition-colors text-gray-700"
+            >
+              Xem thêm doanh nghiệp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <!-- CERTIFICATIONS -->
+    <!-- International Cooperation Section -->
     <!-- ═══════════════════════════════════════════════════ -->
+    <section class="bg-[#0b0f19] text-white py-12 px-6 font-sans">
+      <div class="mx-auto border border-gray-700 rounded-md">
+        <div
+          id="vtalk-global-container"
+          class="relative grid grid-cols-1 lg:grid-cols-12 items-stretch rounded-xl overflow-hidden bg-cover bg-no-repeat"
+          style="
+            background-image: url(&quot;./images/InternationalCooperation.jpg&quot;);
+          "
+        >
+          <div
+            class="lg:col-span-4 p-6 flex flex-col justify-center bg-[#001027] backdrop-blur-sm"
+          >
+            <div id="vtalk-stats-grid" class="grid grid-cols-2 gap-4"></div>
+          </div>
+
+          <div
+            class="lg:col-span-8 relative flex flex-col justify-center gap-6 p-6 lg:p-12"
+          >
+            <div class="absolute inset-y-0 left-0 w-px bg-gray-700 z-20"></div>
+
+            <div
+              class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#001027] via-[#001027]/20 to-transparent z-10"
+            ></div>
+
+            <div class="relative flex flex-col gap-4 z-30">
+              <h2
+                class="text-2xl lg:text-3xl font-extrabold text-[#e5aa56] uppercase leading-tight"
+              >
+                Hợp tác quốc tế
+              </h2>
+              <p
+                class="text-sm lg:text-base text-gray-300 font-medium leading-relaxed lg:w-[60%]"
+              >
+                VTALK Academy mở rộng kết nối với các tổ chức giáo dục, diễn đàn
+                thanh niên, trường đại học và chuyên gia quốc tế nhằm mang đến
+                cơ hội học tập, giao lưu và phát triển theo tiêu chuẩn toàn cầu.
+              </p>
+            </div>
+
+            <div class="relative z-30">
+              <a
+                href="#"
+                class="w-full lg:w-fit inline-flex items-center justify-center gap-1.5 bg-[#e5aa56] hover:bg-[#f5b862] text-black text-xs lg:text-sm font-bold uppercase py-3 px-8 rounded-lg transition-colors shadow-lg shadow-[#e5aa56]/10"
+              >
+                Tìm hiểu thêm
+                <svg
+                  class="size-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const statsData = [
+            {
+              img: "./images/icon color/36.png",
+              number: "10+",
+              label: "Quốc gia<br>đối tác",
+            },
+            {
+              img: "./images/icon color/4.png",
+              number: "30+",
+              label: "Tổ chức &<br>đối tác quốc tế",
+            },
+            {
+              img: "./images/icon color/5.png",
+              number: "1.000+",
+              label: "Học viên tham gia<br>chương trình quốc tế",
+            },
+            {
+              img: "./images/icon color/30.png",
+              number: "50+",
+              label: "Hoạt động hợp tác<br>& giao lưu quốc tế",
+            },
+          ];
+
+          const grid = document.getElementById("vtalk-stats-grid");
+          if (grid) {
+            grid.innerHTML = statsData
+              .map(
+                (stat) => `
+      <div class="flex flex-col items-center justify-center text-center group">
+        <div class="mb-1 flex items-center justify-center size-12 select-none">
+          <img src="${stat.img}" alt="${stat.number}" class="max-h-full max-w-full object-cover" onerror="this.style.display='none';" />
+        </div>
+        <div class="text-xl lg:text-2xl font-extrabold text-[#e5aa56] leading-tight mb-1">${stat.number}</div>
+        <p class="text-xs text-gray-400 font-medium leading-relaxed">${stat.label}</p>
+      </div>
+    `,
+              )
+              .join("");
+          }
+        })();
+      </script>
+    </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <!-- ACTIVITY GALLERY -->
+    <!-- Active Image Section -->
     <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="bg-[#03070c] py-6 px-4 lg:px-8 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <div
+        class="flex flex-col lg:flex-row gap-3 justify-between items-center mb-6"
+      >
+        <h2 class="text-2xl font-bold text-gray-200 uppercase">
+          Hình ảnh hoạt động
+        </h2>
+        <a
+          href="#"
+          class="text-sm text-[#e5aa56] font-medium flex items-center gap-1 transition-colors group"
+        >
+          <span class="group-hover:underline">Xem tất cả</span>
+          <svg
+            class="size-2.5 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex items-center mx-auto relative group px-8 lg:px-12">
+        <button
+          class="absolute left-0 lg:left-2 z-10 bg-black/40 text-white/50 hover:text-[#d2ab7b] size-8 lg:size-10 flex items-center justify-center cursor-pointer text-xl lg:text-2xl rounded-full transition-colors duration-200"
+          id="actPrev"
+        >
+          &#8249;
+        </button>
+
+        <div class="overflow-hidden flex-1 w-full" id="actViewport">
+          <div
+            class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
+            id="actTrack"
+          ></div>
+        </div>
+
+        <button
+          class="absolute right-0 lg:right-2 z-10 bg-black/40 text-white/50 hover:text-[#d2ab7b] size-8 lg:size-10 flex items-center justify-center cursor-pointer text-xl lg:text-2xl rounded-full transition-colors duration-200"
+          id="actNext"
+        >
+          &#8250;
+        </button>
+      </div>
+
+      <script>
+        const ACTIVITIES = [
+          {
+            img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&auto=format&fit=crop&q=60",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&auto=format&fit=crop&q=60",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=500&auto=format&fit=crop&q=60",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=500&auto=format&fit=crop&q=60",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&auto=format&fit=crop&q=60",
+          },
+        ];
+
+        (function () {
+          const track = document.getElementById("actTrack");
+          if (!track || !ACTIVITIES.length) return;
+
+          function getLayout() {
+            const w = window.innerWidth;
+            if (w < 640) return { perPage: 1, gap: 12 };
+            if (w < 1024) return { perPage: 3, gap: 16 };
+            return { perPage: 5, gap: 16 };
+          }
+
+          const cloneBefore = [...ACTIVITIES, ...ACTIVITIES];
+          const cloneAfter = [...ACTIVITIES, ...ACTIVITIES];
+          const extendedActivities = [
+            ...cloneBefore,
+            ...ACTIVITIES,
+            ...cloneAfter,
+          ];
+
+          track.innerHTML = extendedActivities
+            .map(
+              (act) => `
+            <div class="act-item shrink-0 px-1 select-none">
+              <div class="relative aspect-[14/10] w-full rounded-lg overflow-hidden group/item cursor-pointer border border-white/5 bg-neutral-900">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-105" src="${act.img}" alt="Activity">
+              </div>
+            </div>
+          `,
+            )
+            .join("");
+
+          let idx = cloneBefore.length;
+          let isTransitioning = false;
+
+          function update(withTransition = true) {
+            const items = track.children;
+            if (items.length === 0) return;
+
+            const { perPage, gap } = getLayout();
+            const viewportWidth =
+              track.parentElement.getBoundingClientRect().width;
+            const itemWidth = (viewportWidth - (perPage - 1) * gap) / perPage;
+
+            for (let i = 0; i < items.length; i++) {
+              items[i].style.width = `${itemWidth}px`;
+              if (i === items.length - 1) {
+                items[i].style.marginRight = "0px";
+              } else {
+                items[i].style.marginRight = `${gap}px`;
+              }
+            }
+
+            const step = itemWidth + gap;
+
+            if (withTransition) {
+              track.style.transition = "transform 0.4s ease-out";
+              isTransitioning = true;
+            } else {
+              track.style.transition = "none";
+            }
+
+            track.style.transform = `translateX(-${idx * step}px)`;
+          }
+
+          track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            const cloneBeforeCount = cloneBefore.length;
+
+            if (idx >= cloneBeforeCount + ACTIVITIES.length) {
+              idx = idx - ACTIVITIES.length;
+              update(false);
+            } else if (idx < cloneBeforeCount) {
+              idx = idx + ACTIVITIES.length;
+              update(false);
+            }
+          });
+
+          document.getElementById("actPrev").addEventListener("click", () => {
+            if (isTransitioning) return;
+            idx--;
+            update();
+          });
+
+          document.getElementById("actNext").addEventListener("click", () => {
+            if (isTransitioning) return;
+            idx++;
+            update();
+          });
+
+          window.addEventListener("resize", () => {
+            update(false);
+          });
+
+          setTimeout(() => {
+            update(false);
+          }, 150);
+        })();
+      </script>
+    </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <!-- STUDENT REVIEWS -->
+    <!-- Testimonials Section -->
     <!-- ═══════════════════════════════════════════════════ -->
+    <section
+      class="bg-[#03070c] py-6 lg:py-10 px-4 lg:px-8 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+    >
+      <div
+        class="flex flex-col sm:flex-row gap-3 justify-between items-center mb-6"
+      >
+        <h2 class="text-xl lg:text-2xl font-bold text-gray-200 uppercase">
+          Học viên nói gì về Vtalk
+        </h2>
+        <a
+          href="#"
+          class="text-sm text-[#e5aa56] font-medium flex items-center gap-1 transition-colors group"
+        >
+          <span class="group-hover:underline">Xem tất cả đánh giá</span>
+          <svg
+            class="size-3 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex items-center mx-auto relative group px-6 lg:px-10">
+        <button
+          class="absolute left-0 z-10 text-white/40 hover:text-[#d2ab7b] size-8 flex items-center justify-center cursor-pointer text-2xl transition-colors duration-200"
+          id="reviewPrev"
+        >
+          &#8249;
+        </button>
+
+        <div class="overflow-hidden flex-1 w-full" id="reviewViewport">
+          <div
+            class="flex items-stretch transition-transform duration-[0.4s] ease-out will-change-transform"
+            id="reviewTrack"
+          ></div>
+        </div>
+
+        <button
+          class="absolute right-0 z-10 text-white/40 hover:text-[#d2ab7b] size-8 flex items-center justify-center cursor-pointer text-2xl transition-colors duration-200"
+          id="reviewNext"
+        >
+          &#8250;
+        </button>
+      </div>
+
+      <script>
+        const REVIEWS = [
+          {
+            rating: 5,
+            content:
+              "Khóa học giúp tôi tự tin hơn rất nhiều khi thuyết trình và giao tiếp trước đám đông. Giảng viên rất nhiệt tình và chuyên nghiệp.",
+            name: "Nguyễn Thị Mai Anh",
+            role: "Nhân viên Marketing",
+            avatar:
+              "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=60",
+          },
+          {
+            rating: 5,
+            content:
+              "Nội dung thực tế, dễ áp dụng ngay vào công việc. Đặc biệt phần ứng dụng AI rất hữu ích và mới mẻ.",
+            name: "Trần Quốc Huy",
+            role: "Trưởng phòng Kinh doanh",
+            avatar:
+              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=60",
+          },
+          {
+            rating: 5,
+            content:
+              "Chương trình In-house được thiết kế rất phù hợp với nhu cầu công ty, đội ngũ giảng viên và hỗ trợ rất tận tâm.",
+            name: "Lê Hoàng Nam",
+            role: "CEO - Tech Solutions",
+            avatar:
+              "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=60",
+          },
+          {
+            rating: 5,
+            content:
+              "Môi trường học tập năng động, nhiều hoạt động thực hành giúp tôi tiến bộ rõ rệt sau khóa học.",
+            name: "Phạm Thu Trang",
+            role: "Sinh viên",
+            avatar:
+              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=60",
+          },
+        ];
+
+        (function () {
+          const track = document.getElementById("reviewTrack");
+          if (!track || !REVIEWS.length) return;
+
+          function getLayout() {
+            const w = window.innerWidth;
+            if (w < 640) return { perPage: 1, gap: 12 };
+            if (w < 1024) return { perPage: 2, gap: 16 };
+            return { perPage: 4, gap: 16 };
+          }
+
+          function generateStars(rating) {
+            let starsHtml = "";
+            for (let i = 0; i < 5; i++) {
+              starsHtml += `
+            <svg class="size-4 ${i < rating ? "text-[#e5aa56]" : "text-gray-600"} fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          `;
+            }
+            return starsHtml;
+          }
+
+          const cloneBefore = [...REVIEWS, ...REVIEWS];
+          const cloneAfter = [...REVIEWS, ...REVIEWS];
+          const extendedReviews = [...cloneBefore, ...REVIEWS, ...cloneAfter];
+
+          track.innerHTML = extendedReviews
+            .map(
+              (rev) => `
+        <div class="review-item shrink-0 select-none box-border flex">
+          <div class="w-full rounded-xl p-5 border border-white/10 bg-[#070d14] flex flex-col justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-0.5 mb-3">
+                ${generateStars(rev.rating)}
+              </div>
+              <p class="text-[13px] lg:text-sm text-gray-300 leading-relaxed font-normal">
+                ${rev.content}
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-2">
+              <img class="size-10 rounded-full object-cover border border-white/10 shrink-0" src="${rev.avatar}" alt="${rev.name}">
+              <div class="overflow-hidden">
+                <h4 class="text-sm font-semibold text-gray-200 truncate">${rev.name}</h4>
+                <p class="text-xs text-gray-400 truncate mt-0.5">${rev.role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+            )
+            .join("");
+
+          let idx = cloneBefore.length;
+          let isTransitioning = false;
+
+          function update(withTransition = true) {
+            const items = track.children;
+            if (items.length === 0) return;
+
+            const { perPage, gap } = getLayout();
+            const viewportWidth =
+              track.parentElement.getBoundingClientRect().width;
+            const itemWidth = (viewportWidth - (perPage - 1) * gap) / perPage;
+
+            for (let i = 0; i < items.length; i++) {
+              items[i].style.width = `${itemWidth}px`;
+              if (i === items.length - 1) {
+                items[i].style.marginRight = "0px";
+              } else {
+                items[i].style.marginRight = `${gap}px`;
+              }
+            }
+
+            const step = itemWidth + gap;
+
+            if (withTransition) {
+              track.style.transition = "transform 0.4s ease-out";
+              isTransitioning = true;
+            } else {
+              track.style.transition = "none";
+            }
+
+            track.style.transform = `translateX(-${idx * step}px)`;
+          }
+
+          track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            const cloneBeforeCount = cloneBefore.length;
+
+            if (idx >= cloneBeforeCount + REVIEWS.length) {
+              idx = idx - REVIEWS.length;
+              update(false);
+            } else if (idx < cloneBeforeCount) {
+              idx = idx + REVIEWS.length;
+              update(false);
+            }
+          });
+
+          document
+            .getElementById("reviewPrev")
+            .addEventListener("click", () => {
+              if (isTransitioning) return;
+              idx--;
+              update();
+            });
+
+          document
+            .getElementById("reviewNext")
+            .addEventListener("click", () => {
+              if (isTransitioning) return;
+              idx++;
+              update();
+            });
+
+          window.addEventListener("resize", () => {
+            update(false);
+          });
+
+          setTimeout(() => {
+            update(false);
+          }, 150);
+        })();
+      </script>
+    </section>
   </body>
 </html>
