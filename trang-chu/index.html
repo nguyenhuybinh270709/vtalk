@@ -317,7 +317,7 @@
     <!-- Achievement And Milestones Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="relative bg-[#0b0f19] text-white py-12 px-4 font-sans selection:bg-[#e5aa56] selection:text-black bg-cover bg-center bg-no-repeat"
+      class="relative bg-[#03070c] text-white py-12 px-4 font-sans bg-cover bg-center bg-no-repeat"
       style="
         background-image: url(&quot;./images/achievement-and-milestones-bg-img.jpg&quot;);
       "
@@ -401,9 +401,7 @@
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- Courses Section -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <section
-      class="bg-[#0b0f19] text-white py-12 px-4 lg:px-6 font-sans selection:bg-[#e5aa56] selection:text-black"
-    >
+    <section class="bg-[#03070c] text-white py-12 px-4 lg:px-6 font-sans">
       <div class="mx-auto">
         <div
           class="flex flex-col lg:flex-row gap-3 justify-between items-center mb-6"
@@ -469,7 +467,7 @@
           <h3 class="text-xl font-bold text-white uppercase leading-tight">
             ${item.title}
           </h3>
-          <p class="text-sm text-gray-400 font-medium leading-relaxed bg-[#0b0f19]/40 backdrop-blur-xs rounded-lg p-1 inline-block">
+          <p class="text-sm text-gray-400 font-medium leading-relaxed bg-[#03070c]/40 backdrop-blur-xs rounded-lg p-1 inline-block">
             ${item.desc}
           </p>
         </div>
@@ -498,7 +496,7 @@
     <!-- Instructors Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="bg-[#0b0f19] text-white py-12 px-6 font-sans selection:bg-[#e5aa56] selection:text-black border-t border-white/5"
+      class="bg-[#03070c] text-white py-12 px-6 font-sans border-t border-white/5"
     >
       <div class="mx-auto">
         <div
@@ -718,7 +716,7 @@
             <iframe
               id="vtalkMainVideo"
               class="w-full h-full absolute inset-0"
-              src="https://www.youtube.com/embed/wDchsz8nmbo?list=RDwDchsz8nmbo"
+              src=""
               title="VTALK Video Player"
               frameborder="0"
               allow="
@@ -779,6 +777,8 @@
 
           const container = document.getElementById("vtalk-playlist-container");
           const iframe = document.getElementById("vtalkMainVideo");
+          iframe.src = PLAYLIST[0].src;
+
           if (!container || !iframe) return;
 
           container.innerHTML = PLAYLIST.map(
@@ -965,7 +965,7 @@
           "
         >
           <div
-            class="lg:col-span-4 p-6 flex flex-col justify-center bg-[#001027] backdrop-blur-sm"
+            class="lg:col-span-4 p-6 flex flex-col justify-center bg-[#0b0f19] backdrop-blur-sm"
           >
             <div id="vtalk-stats-grid" class="grid grid-cols-2 gap-4"></div>
           </div>
@@ -976,7 +976,7 @@
             <div class="absolute inset-y-0 left-0 w-px bg-gray-700 z-20"></div>
 
             <div
-              class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#001027] via-[#001027]/20 to-transparent z-10"
+              class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0b0f19] via-[#0b0f19]/20 to-transparent z-10"
             ></div>
 
             <div class="relative flex flex-col gap-4 z-30">
