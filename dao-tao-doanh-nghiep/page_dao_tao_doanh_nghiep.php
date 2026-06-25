@@ -46,26 +46,15 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
   <body>
     <!-- Hero Section -->
     <section
-      class="pt-6 lg:pt-0 relative bg-[#10100e] overflow-hidden min-h-[500px] lg:min-h-[400px] flex items-center font-['Be_Vietnam_Pro',sans-serif]"
+      class="lg:min-h-screen pt-6 lg:pt-0 relative bg-[#10100e] overflow-hidden min-h-[500px] lg:min-h-[400px] flex items-center font-['Be_Vietnam_Pro',sans-serif]"
     >
       <img 
         class="hidden lg:block absolute right-0 top-0 bottom-0 w-full h-full object-cover object-top"
     src="<?php echo $hero_section['background_image']; ?>" 
     alt="Hero Image" 
   />
-
       <div
-        class="absolute left-6 md:left-12 top-6 text-[rgba(255,255,255,0.38)] space-x-2 text-[11.5px] z-[4]"
-      >
-        <span><a href="/">Trang chủ</a></span>
-        <span class="pointer-events-none">&rsaquo;</span>
-        <span class="text-[rgba(255,255,255,0.6)]"
-          ><a href="#">Đào tạo Doanh nghiệp</a></span
-        >
-      </div>
-
-      <div
-        class="relative z-[3] w-full mx-auto px-6 md:px-12 py-20 lg:py-24 flex flex-col lg:flex-row lg:items-end justify-between gap-8"
+        class="relative z-[3] w-full mx-auto px-6 lg:px-20 py-20 lg:py-24 flex flex-col lg:flex-row lg:items-end justify-between gap-8"
       >
         <div class="w-full lg:w-[55%]">
           <h1
@@ -83,7 +72,7 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
           </h1>
 
           <p
-            class="mt-4 text-[#a6aaad] leading-[1.82] max-w-full lg:max-w-[80%] text-sm sm:text-[15px] lg:text-sm"
+            class="mt-4 text-[#a6aaad] leading-[1.82] max-w-full lg:max-w-[80%] text-sm sm:text-[15px] lg:text-base"
           >
             <?php echo $hero_section['content']; ?>
           </p>
@@ -107,9 +96,9 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
         <div
           class="hidden lg:block bg-[rgba(20,18,14,0.72)] border border-[rgba(210,171,123,0.25)] rounded-[10px] p-6 max-w-[280px] w-full backdrop-blur-sm self-start lg:self-end"
         >
-          <div class="text-[#e0b682] text-[22px] font-serif leading-none mb-3">
-            &ldquo;
-          </div>
+          <div class="text-[#e0b682] text-4xl font-serif leading-none mb-3">
+           <svg class="fill-current size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#e0b682" d="M0 	216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 	35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64L0 216zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 			0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-136z"/></svg>
+</div>
           <p
             class="text-[#e0b682] text-[12.5px] leading-[1.8] uppercase tracking-[0.5px] font-medium"
           >
@@ -129,9 +118,9 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
 
     <!-- Partners Section -->
     <section
-      class="bg-[#070e16] py-[20px] px-0 pb-[22px] border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+      class="bg-[#070e16] py-12 px-0 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
     >
-      <p class="text-center text-sm uppercase text-[#d2ab7b] font-bold mb-4">
+      <p class="text-center text-2xl uppercase text-[#d2ab7b] font-bold mb-4">
         <?php echo $partners_section['title']; ?>
       </p>
       <div class="flex items-center lg:w-[80%] mx-auto px-4 py-0">
@@ -190,7 +179,7 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
               <div class="p-item shrink-0 flex items-center justify-center px-2 select-none">
                 ${
                   p.img
-                    ? `<img class="max-h-7 max-w-full object-contain brightness-0 invert opacity-60 transition-opacity duration-200 hover:opacity-100" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    ? `<img class="max-h-14 max-w-full object-contain brightness-0 invert opacity-60 transition-opacity duration-200 hover:opacity-100" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                       <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
                     : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
                 }
@@ -269,7 +258,7 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
     </section>
 
     <!-- Why Choose Section -->
-    <section class="bg-[#202d49] py-12 px-6 font-['Be_Vietnam_Pro',sans-serif]">
+    <section class="bg-[#071825] py-12 px-6 font-['Be_Vietnam_Pro',sans-serif]">
       <h2
         class="text-center text-[#d2ab7b] text-2xl sm:text-3xl lg:text-2xl font-bold uppercase mb-12"
       >
@@ -326,7 +315,7 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
         <?php echo $solution_section['sub_title']; ?>
       </p>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-3.5 max-w-[1140px] mx-auto"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-3.5 px-12 mx-auto"
         id="solGrid"
       ></div>
       <div class="text-center mt-9">
@@ -373,8 +362,8 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
             }
           </div>
           <div class="p-3.5 pb-4.5">
-            <h4 class="text-[15px] lg:text-[13px] font-extrabold uppercase text-[var(--text)] mb-2">${s.title.replace(/\n/g, "<br>")}</h4>
-            <p class="text-[13px] lg:text-[11px] text-gray-700 leading-[1.7]">${s.desc}</p>
+            <h4 class="text-[15px] lg:text-sm font-extrabold uppercase leading-[1.4] text-[var(--text)] mb-2">${s.title.replace(/\n/g, "<br>")}</h4>
+            <p class="text-[13px] lg:text-xs text-gray-700 leading-[1.7]">${s.desc}</p>
             <a href="#" class="inline-flex items-center gap-1 text-[var(--gold)] text-xs font-bold uppercase no-underline mt-3 hover:underline">
               Xem chi tiết 
               <svg class="w-2 h-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -390,7 +379,7 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
 
     <!-- Training Process Section -->
     <section
-      class="bg-white py-12 px-6 md:px-16 font-['Be_Vietnam_Pro',sans-serif]"
+      class="bg-white py-12 lg:py-16 px-6 md:px-16 font-['Be_Vietnam_Pro',sans-serif]"
     >
       <h2 class="text-center text-2xl font-extrabold uppercase text-[#1a1a1a]">
         <?php echo $training_process_section['title']; ?>
@@ -447,7 +436,7 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
 
     <!-- Testimonials Section -->
     <section
-      class="pt-[68px] pb-[72px] px-6 bg-white font-['Be_Vietnam_Pro',sans-serif]"
+      class="py-12 px-6 bg-white font-['Be_Vietnam_Pro',sans-serif]"
     >
       <div
         class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 max-w-[1140px] mx-auto items-start"
@@ -540,13 +529,13 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
             (t) => `
               <div class="border border-[#e5e5e5] p-5 pb-5.5 bg-white shrink-0 flex flex-col justify-between box-border select-none">
                 <div>
-                  <div class="mb-3 h-7 flex items-center">
-                    ${
-                      t.logo_image 
-                        ? `<img class="max-h-full max-w-[120px] object-contain" src="${t.logo_image}" alt="${t.logo_name}">`
-                        : `<span class="text-xl lg:text-base font-black text-[var(--text)]">${t.logo_name}</span>`
-                    }
-                  </div>
+                	<div class="mb-3 h-11 flex items-center">
+  					${
+    					t.logo_image 
+      					? `<img class="max-h-full max-w-[120px] object-contain" 							src="${t.logo_image}" alt="${t.logo_name}">`
+      					: `<span class="text-xl lg:text-base font-black text-[var(--text)]">${t.logo_name}</span>`
+  					}
+					</div>
                   <p class="text-sm lg:text-xs text-gray-600 leading-[1.8]">${t.quote}</p>
                 </div>
                 <div>
@@ -840,15 +829,6 @@ $contact_section = get_field('page_dao_tao_doanh_nghiep_contact_section');
             class="bg-[#d2ab7b] text-[#1a1a1a] font-extrabold text-xs h-[42px] px-6 border-none cursor-pointer no-underline inline-flex items-center gap-1.5 uppercase tracking-[0.5px] transition-colors duration-200 rounded-[5px] hover:bg-[#c49a6a] max-[480px]:w-full max-[480px]:justify-center"
           >
             <?php echo $contact_section['button_1']['text']; ?>
-            <svg
-              class="size-3 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-            >
-              <path
-                d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
-              />
-            </svg>
           </a>
 
           <a
