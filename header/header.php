@@ -22,9 +22,10 @@ class VTALK_Nav_Walker extends Walker_Nav_Menu {
             $out_js     = "this.style.color='{$base_color}'";
             $output .= '<li class="vtalk-nav-item" style="position:relative;display:flex;align-items:center">';
             $output .= '<a href="' . esc_url( $item->url ) . '" ' . $target
-                     . ' style="display:flex;align-items:center;gap:4px;color:#ffffff;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;text-decoration:none;transition:color .2s"'
-                     . ' onmouseover="' . $hover_js . '"'
-                     . ' onmouseout="' . $out_js . '">'
+                        . ' class="vtalk-nav-link"'
+                        . ' style="display:flex;align-items:center;gap:4px;color:#ffffff;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;text-decoration:none;transition:color .2s"'
+                        . ' onmouseover="' . $hover_js . '"'
+                        . ' onmouseout="' . $out_js . '">'
                      . '<span>' . esc_html( $item->title ) . '</span>';
             if ( $has_children ) {
                 $output .= '<svg class="nav-chevron" style="width:12px;height:12px;opacity:0.5;flex-shrink:0;margin-left:2px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
@@ -35,7 +36,7 @@ class VTALK_Nav_Walker extends Walker_Nav_Menu {
             $output .= '<li class="vtalk-sub-item relative group/sub">';
             $link_class = implode( ' ', [
                 'text-white flex items-center justify-between gap-3 px-4 py-2.5',
-                'text-[16px] font-medium rounded-lg',
+                'text-[16px] xl:text-[18px] font-medium rounded-lg',
                 'transition-colors duration-150',
                 $has_children ? 'text-white font-semibold uppercase cursor-default' : '',
                 ! $has_children ? 'text-white hover:text-[#fe2d2d] hover:bg-white/[0.06]' : '',
@@ -55,7 +56,7 @@ class VTALK_Nav_Walker extends Walker_Nav_Menu {
         } elseif ( $depth === 2 ) {
             $output .= '<li class="vtalk-sub2-item">';
             $link_class = implode( ' ', array(
-                'block px-4 py-2.5 text-[16px] rounded-md',
+                'block px-4 py-2.5 text-[16px] xl:text-[18px] rounded-md',
                 'transition-colors duration-150',
                 $is_active ? 'text-white hover:text-[#fe2d2d] hover:bg-white/[0.06]' : ''
             ));
@@ -201,6 +202,15 @@ if ( $option_logo ) $logo_url = $option_logo;
     </script>
 
     <style>
+        .vtalk-nav-link {
+            font-size: 16px;
+        }
+        @media (min-width: 1280px) {
+            .vtalk-nav-link {
+                font-size: 18px;
+            }
+        }
+
         #masthead .vtalk-dropdown,
         #mobile-menu {
             overflow-y: auto !important;
