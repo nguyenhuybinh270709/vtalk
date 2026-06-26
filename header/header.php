@@ -22,7 +22,7 @@ class VTALK_Nav_Walker extends Walker_Nav_Menu {
             $out_js     = "this.style.color='{$base_color}'";
             $output .= '<li class="vtalk-nav-item" style="position:relative;display:flex;align-items:center">';
             $output .= '<a href="' . esc_url( $item->url ) . '" ' . $target
-                     . ' style="display:flex;align-items:center;gap:4px;color:#ffffff;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;text-decoration:none;transition:color .2s"'
+                     . ' style="display:flex;align-items:center;gap:4px;color:#ffffff;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;text-decoration:none;transition:color .2s"'
                      . ' onmouseover="' . $hover_js . '"'
                      . ' onmouseout="' . $out_js . '">'
                      . '<span>' . esc_html( $item->title ) . '</span>';
@@ -35,16 +35,16 @@ class VTALK_Nav_Walker extends Walker_Nav_Menu {
             $output .= '<li class="vtalk-sub-item relative group/sub">';
             $link_class = implode( ' ', [
                 'text-white flex items-center justify-between gap-3 px-4 py-2.5',
-                'text-[13px] font-medium rounded-lg',
+                'text-[16px] font-medium rounded-lg',
                 'transition-colors duration-150',
                 $has_children ? 'text-white font-semibold uppercase cursor-default' : '',
                 ! $has_children ? 'text-white hover:text-[#fe2d2d] hover:bg-white/[0.06]' : '',
             ] );
             if ( $has_children ) {
                 // Section header — not a link
-                $output .= '<div class="' . $link_class . '">'
+                $output .= '<div class="' . $link_class . '" style="cursor:pointer;">'
                          . '<span>' . esc_html( $item->title ) . '</span>'
-                         . '<svg class="w-3 h-3 opacity-40 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>'
+                         . '<svg class="w-3 h-3 opacity-40 shrink-0 transition-transform duration-200 desktop-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>'
                          . '</div>';
             } else {
                 $output .= '<a href="' . esc_url( $item->url ) . '" class="' . $link_class . '" ' . $target . '>'
@@ -55,7 +55,7 @@ class VTALK_Nav_Walker extends Walker_Nav_Menu {
         } elseif ( $depth === 2 ) {
             $output .= '<li class="vtalk-sub2-item">';
             $link_class = implode( ' ', array(
-                'block px-4 py-2.5 text-[12px] rounded-md',
+                'block px-4 py-2.5 text-[16px] rounded-md',
                 'transition-colors duration-150',
                 $is_active ? 'text-white hover:text-[#fe2d2d] hover:bg-white/[0.06]' : ''
             ));
@@ -134,7 +134,7 @@ class VTALK_Mobile_Nav_Walker extends Walker_Nav_Menu {
                 . 'display:flex;align-items:center;justify-content:space-between;'
                 . 'width:100%;height:56px;'
                 . 'background:transparent;border:none;outline:none;'
-                . 'font-size:14px;font-weight:600;letter-spacing:.05em;'
+                . 'font-size:16px;font-weight:600;letter-spacing:.05em;'
                 . 'text-transform:uppercase;color:#ffffff;cursor:pointer;">'
                 . '<span>' . esc_html( $item->title ) . '</span>'
                 . '<svg class="accordion-icon" style="width:18px;height:18px;opacity:.5;transition:transform .2s;flex-shrink:0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">'
@@ -150,7 +150,7 @@ class VTALK_Mobile_Nav_Walker extends Walker_Nav_Menu {
                 . $padding
                 . 'display:flex;align-items:center;'
                 . 'height:56px;'
-                . 'font-size:14px;'
+                . 'font-size:16px;'
                 . 'font-weight:500;'
                 . 'letter-spacing:.05em;'
                 . 'text-transform:uppercase;'
@@ -297,7 +297,7 @@ if ( $option_logo ) $logo_url = $option_logo;
                 <img
                     src="<?php echo esc_url( $logo_url ); ?>"
                     alt="<?php bloginfo( 'name' ); ?>"
-                    style="height:80px;width:auto;object-fit:contain;display:block;max-width:none;"
+                    style="height:120px;width:auto;object-fit:contain;display:block;max-width:none;"
                 />
             </a>
 
@@ -382,6 +382,85 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdown.style.visibility = 'hidden';
             dropdown.style.transform  = 'translateX(-50%) translateY(4px)';
         });
+    });
+
+    function initSubmenuStyles() {
+        document.querySelectorAll('.vtalk-sub-item .vtalk-submenu').forEach(function (submenu) {
+            if (window.innerWidth >= 1024) {
+                submenu.style.position = 'relative';
+                submenu.style.width = '100%';
+                submenu.style.background = 'rgba(255,255,255,0.04)';
+                submenu.style.border = 'none';
+                submenu.style.borderRadius = '6px';
+                submenu.style.padding = '4px 0';
+                submenu.style.marginTop = '4px';
+                submenu.style.display = 'none';
+                submenu.style.opacity = '';
+                submenu.style.visibility = '';
+                submenu.style.transition = '';
+            } else {
+                submenu.style.position = '';
+                submenu.style.width = '';
+                submenu.style.background = '';
+                submenu.style.border = '';
+                submenu.style.borderRadius = '';
+                submenu.style.padding = '';
+                submenu.style.marginTop = '';
+                submenu.style.display = 'none';
+                submenu.style.opacity = '';
+                submenu.style.visibility = '';
+                submenu.style.transition = '';
+            }
+        });
+    }
+    initSubmenuStyles();
+    window.addEventListener('resize', initSubmenuStyles);
+
+    document.querySelectorAll('.vtalk-sub-item').forEach(function (li) {
+        const submenu = li.querySelector('.vtalk-submenu');
+        const chevron = li.querySelector('.desktop-chevron');
+        if (!submenu) return;
+
+        li.addEventListener('mouseenter', function () {
+            if (window.innerWidth >= 1024) {
+                submenu.style.display = 'block';
+                if (chevron) chevron.style.transform = 'rotate(180deg)';
+            }
+        });
+
+        li.addEventListener('mouseleave', function () {
+            if (window.innerWidth >= 1024) {
+                submenu.style.display = 'none';
+                if (chevron) chevron.style.transform = '';
+            }
+        });
+
+        const trigger = li.querySelector('.text-white.flex.items-center');
+        if (trigger) {
+            trigger.addEventListener('click', function (e) {
+                if (window.innerWidth < 1024) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isOpen = submenu.style.display === 'block';
+                    const parentUl = this.closest('ul');
+                    
+                    if (parentUl) {
+                        parentUl.querySelectorAll('.vtalk-submenu').forEach(sub => {
+                            sub.style.display = 'none';
+                        });
+                        parentUl.querySelectorAll('.desktop-chevron').forEach(chv => {
+                            chv.style.transform = '';
+                        });
+                    }
+
+                    if (!isOpen) {
+                        submenu.style.display = 'block';
+                        if (chevron) chevron.style.transform = 'rotate(180deg)';
+                    }
+                }
+            });
+        }
     });
 
     document.querySelectorAll('.mobile-accordion-btn').forEach(function (trigger) {

@@ -66,7 +66,7 @@ $testimonials_section = get_field('testimonials_section');
       </div>
 
       <div
-        class="relative z-10 mx-auto px-6 lg:px-12 py-10 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 w-full"
+        class="relative z-10 mx-auto px-6 lg:px-20 py-10 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 w-full"
       >
         <div class="flex-1 text-white lg:w-[50%]">
           <h1
@@ -170,14 +170,14 @@ $testimonials_section = get_field('testimonials_section');
     <!-- Media And Press Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="bg-[#070e16] py-[20px] px-0 pb-[22px] border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+      class="bg-[#070e16] py-12 px-0 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
     >
       <p
-        class="text-center text-base lg:text-lg uppercase text-white font-bold mb-4"
+        class="text-center text-xl sm:text-2xl uppercase text-white font-bold mb-12"
       >
         <?php echo $media_and_press_section['title']; ?>
       </p>
-      <div class="flex items-center lg:w-[95%] mx-auto px-4 py-0">
+      <div class="flex items-center lg:w-[90%] mx-auto px-4 py-0">
         <button
           class="bg-none text-[rgba(255,255,255,0.5)] size-6 flex items-center justify-center cursor-pointer shrink-0 text-3xl rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
           id="pPrev"
@@ -206,6 +206,7 @@ $testimonials_section = get_field('testimonials_section');
                   $formatted_items[] = [
                       'name' => $items['name'],
                       'logo'  => $items['logo'],
+                      'link'  => $items['link'],
                   ];
               }
           }
@@ -220,7 +221,7 @@ $testimonials_section = get_field('testimonials_section');
             const w = window.innerWidth;
             if (w < 640) return { perPage: 2, gap: 16 };
             if (w < 1024) return { perPage: 4, gap: 24 };
-            return { perPage: 6, gap: 32 };
+            return { perPage: 5, gap: 32 };
           }
 
           const cloneBefore = [...PARTNERS, ...PARTNERS];
@@ -231,14 +232,16 @@ $testimonials_section = get_field('testimonials_section');
             .map(
               (p) => `
                 <div class="p-item shrink-0 flex items-center justify-center px-2 select-none">
-                  ${
-                    p.logo
-                      ? `<img class="max-h-10 max-w-full object-contain rounded-md" src="${p.logo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                        <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
-                      : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
-                  }
+                  <a href="${p.link}" target="_blank" class="flex items-center justify-center w-full h-full">
+                    ${
+                      p.logo
+                        ? `<img class="max-h-14 max-w-full object-contain rounded-md" src="${p.logo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                          <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
+                        : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
+                    }
+                  </a>
                 </div>
-              `,
+                `,
             )
             .join("");
 
@@ -436,7 +439,7 @@ $testimonials_section = get_field('testimonials_section');
                     <h3 class="text-xl font-bold text-white uppercase leading-tight">
                         ${item.title}
                     </h3>
-                    <p class="text-sm text-gray-400 font-medium leading-relaxed bg-[#03070c]/40 backdrop-blur-xs rounded-lg p-1 inline-block">
+                    <p class="text-sm text-gray-400 font-medium leading-relaxed backdrop-blur-xs rounded-lg p-1 inline-block">
                         ${item.description}
                     </p>
                     </div>
@@ -660,7 +663,7 @@ $testimonials_section = get_field('testimonials_section');
           </h2>
         </div>
         <div
-          class="grid grid-cols-1 lg:grid-cols-[5fr_3fr_4fr] gap-8 items-start"
+          class="grid grid-cols-1 lg:grid-cols-[5fr_3fr_4fr] gap-8 items-center"
         >
           <div
             class="relative w-full aspect-video rounded-2xl border border-gray-700 overflow-hidden bg-black"
