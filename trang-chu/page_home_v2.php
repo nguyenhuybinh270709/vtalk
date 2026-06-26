@@ -66,7 +66,7 @@ $testimonials_section = get_field('testimonials_section');
       </div>
 
       <div
-        class="relative z-10 mx-auto px-6 lg:px-20 py-10 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 w-full"
+        class="relative z-10 mx-auto px-6 lg:px-20 py-12 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 w-full"
       >
         <div class="flex-1 text-white lg:w-[50%]">
           <h1
@@ -185,10 +185,16 @@ $testimonials_section = get_field('testimonials_section');
           &#8249;
         </button>
         <div class="overflow-hidden flex-1 mx-3 my-0" id="pViewport">
-          <div
-            class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
-            id="pTrack"
-          ></div>
+          <div class="flex flex-col gap-4" id="pRows">
+            <div
+              class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
+              id="pTrack"
+            ></div>
+            <div
+              class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
+              id="pTrack2"
+            ></div>
+          </div>
         </div>
         <button
           class="bg-none text-[rgba(255,255,255,0.5)] size-6 flex items-center justify-center cursor-pointer shrink-0 text-3xl rounded-[2px] transition-colors duration-200 hover:border-[#d2ab7b] hover:text-[#d2ab7b]"
@@ -215,7 +221,8 @@ $testimonials_section = get_field('testimonials_section');
 
         (function () {
           const track = document.getElementById("pTrack");
-          if (!track || !PARTNERS.length) return;
+          const track2 = document.getElementById("pTrack2");
+          if (!track || !track2 || !PARTNERS.length) return;
 
           function getLayout() {
             const w = window.innerWidth;
@@ -224,82 +231,107 @@ $testimonials_section = get_field('testimonials_section');
             return { perPage: 5, gap: 32 };
           }
 
-          const cloneBefore = [...PARTNERS, ...PARTNERS];
-          const cloneAfter = [...PARTNERS, ...PARTNERS];
-          const extendedPartners = [...cloneBefore, ...PARTNERS, ...cloneAfter];
+          const half = Math.ceil(PARTNERS.length / 2);
+          const row1 = PARTNERS.slice(0, half);
+          const row2 = PARTNERS.slice(half);
 
-          track.innerHTML = extendedPartners
-            .map(
-              (p) => `
-                <div class="p-item shrink-0 flex items-center justify-center px-2 select-none">
-                  <a href="${p.link}" target="_blank" class="flex items-center justify-center w-full h-full">
-                    ${
-                      p.logo
-                        ? `<img class="max-h-14 max-w-full object-contain rounded-md" src="${p.logo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                          <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
-                        : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
-                    }
-                  </a>
-                </div>
-                `,
-            )
-            .join("");
+          function buildExtended(arr) {
+            const cloneBefore = [...arr, ...arr];
+            const cloneAfter = [...arr, ...arr];
+            return { extended: [...cloneBefore, ...arr, ...cloneAfter], originalLen: arr.length, cloneBeforeLen: cloneBefore.length };
+          }
 
-          let idx = cloneBefore.length;
+          const r1 = buildExtended(row1);
+          const r2 = buildExtended(row2);
+
+          function renderItems(trackEl, extendedArr) {
+            trackEl.innerHTML = extendedArr
+              .map(
+                (p) => `
+                  <div class="p-item shrink-0 flex items-center justify-center px-2 select-none">
+                    <a href="${p.link}" target="_blank" class="flex items-center justify-center w-full h-full">
+                      ${
+                        p.logo
+                          ? `<img class="max-h-14 max-w-full object-contain rounded-md" src="${p.logo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                            <span class="text-white/60 text-xs uppercase font-bold" style="display:none">${p.name}</span>`
+                          : `<span class="text-white/60 text-xs uppercase font-bold text-center">${p.name}</span>`
+                      }
+                    </a>
+                  </div>
+                  `,
+              )
+              .join("");
+          }
+
+          renderItems(track, r1.extended);
+          renderItems(track2, r2.extended);
+
+          let idx1 = r1.cloneBeforeLen;
+          let idx2 = r2.cloneBeforeLen;
           let isTransitioning = false;
 
-          function update(withTransition = true) {
-            const items = track.children;
+          function updateTrack(trackEl, idx, withTransition) {
+            const items = trackEl.children;
             if (items.length === 0) return;
 
             const { perPage, gap } = getLayout();
-            const viewportWidth =
-              track.parentElement.getBoundingClientRect().width;
+            const viewportWidth = trackEl.parentElement.getBoundingClientRect().width;
             const itemWidth = (viewportWidth - (perPage - 1) * gap) / perPage;
 
             for (let i = 0; i < items.length; i++) {
               items[i].style.width = `${itemWidth}px`;
-              if (i === items.length - 1) {
-                items[i].style.marginRight = "0px";
-              } else {
-                items[i].style.marginRight = `${gap}px`;
-              }
+              items[i].style.marginRight = i === items.length - 1 ? "0px" : `${gap}px`;
             }
 
             const step = itemWidth + gap;
 
             if (withTransition) {
-              track.style.transition = "transform 0.4s ease-out";
-              isTransitioning = true;
+              trackEl.style.transition = "transform 0.4s ease-out";
             } else {
-              track.style.transition = "none";
+              trackEl.style.transition = "none";
             }
 
-            track.style.transform = `translateX(-${idx * step}px)`;
+            trackEl.style.transform = `translateX(-${idx * step}px)`;
+          }
+
+          function update(withTransition = true) {
+            if (withTransition) isTransitioning = true;
+            updateTrack(track, idx1, withTransition);
+            updateTrack(track2, idx2, withTransition);
           }
 
           track.addEventListener("transitionend", () => {
             isTransitioning = false;
-            const cloneBeforeCount = cloneBefore.length;
+            if (idx1 >= r1.cloneBeforeLen + r1.originalLen) {
+              idx1 -= r1.originalLen;
+              updateTrack(track, idx1, false);
+            } else if (idx1 < r1.cloneBeforeLen) {
+              idx1 += r1.originalLen;
+              updateTrack(track, idx1, false);
+            }
+          });
 
-            if (idx >= cloneBeforeCount + PARTNERS.length) {
-              idx = idx - PARTNERS.length;
-              update(false);
-            } else if (idx < cloneBeforeCount) {
-              idx = idx + PARTNERS.length;
-              update(false);
+          track2.addEventListener("transitionend", () => {
+            if (idx2 >= r2.cloneBeforeLen + r2.originalLen) {
+              idx2 -= r2.originalLen;
+              updateTrack(track2, idx2, false);
+            } else if (idx2 < r2.cloneBeforeLen) {
+              idx2 += r2.originalLen;
+              updateTrack(track2, idx2, false);
             }
           });
 
           document.getElementById("pPrev").addEventListener("click", () => {
             if (isTransitioning) return;
-            idx--;
+            idx1--;
+            idx2--;
             update();
           });
 
           document.getElementById("pNext").addEventListener("click", () => {
             if (isTransitioning) return;
-            idx++;
+            idx1++;
+            idx2++;
             update();
           });
 
@@ -318,7 +350,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- Achievement And Milestones Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="relative bg-[#03070c] text-white py-12 px-4 font-sans bg-cover bg-center bg-no-repeat"
+      class="relative bg-[#03070c] text-white py-12 px-6 lg:px-16 font-sans bg-cover bg-center bg-no-repeat"
       style="background-image: url(&quot;<?php echo $achievement_and_milestones_section['background_image']; ?>&quot;);">
         <div
             class="absolute inset-0 bg-gradient-to-b h-16 from-black to-transparent"
@@ -381,7 +413,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- Courses Section -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <section class="bg-[#03070c] text-white py-12 px-4 lg:px-6 font-sans">
+    <section class="bg-[#03070c] text-white py-12 px-6 lg:px-16 font-sans">
       <div class="mx-auto">
         <div
           class="flex flex-col lg:flex-row gap-3 justify-between items-center mb-6"
@@ -469,7 +501,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- Instructors Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="bg-[#03070c] text-white py-12 px-6 font-sans border-t border-white/5"
+      class="bg-[#03070c] text-white py-12 px-6 lg:px-16 font-sans border-t border-white/5"
     >
       <div class="mx-auto">
         <div
@@ -654,7 +686,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- Vtalk In Action Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="bg-[#0b0f19] text-white py-12 px-6 font-sans border-t border-white/5"
+      class="bg-[#0b0f19] text-white py-12 px-6 lg:px-16 font-sans border-t border-white/5"
     >
       <div class="mx-auto">
         <div class="flex justify-center lg:justify-between items-center mb-8">
@@ -773,7 +805,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- Corporate Training Section -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <section class="bg-[#0b0f19] text-white py-8 px-6 font-sans">
+    <section class="bg-[#0b0f19] text-white py-8 px-6 lg:px-16 font-sans">
       <div class="mx-auto border border-white/20 rounded-lg">
         <div
           class="grid grid-cols-1 lg:grid-cols-10 items-stretch rounded-lg border border-gray-800/60 overflow-hidden"
@@ -896,7 +928,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- International Cooperation Section -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <section class="bg-[#0b0f19] text-white py-12 px-6 font-sans">
+    <section class="bg-[#0b0f19] text-white py-12 px-6 lg:px-16 font-sans">
       <div class="mx-auto border border-gray-700 rounded-md">
         <div
           id="vtalk-global-container"
@@ -983,7 +1015,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- Active Image Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="bg-[#03070c] py-6 px-4 lg:px-8 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+      class="bg-[#03070c] py-6 px-6 lg:px-16 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
     >
       <div
         class="flex flex-col lg:flex-row gap-3 justify-between items-center mb-6"
@@ -1148,7 +1180,7 @@ $testimonials_section = get_field('testimonials_section');
     <!-- Testimonials Section -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section
-      class="bg-[#03070c] py-6 lg:py-10 px-4 lg:px-8 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
+      class="bg-[#03070c] py-6 lg:py-10 px-6 lg:px-16 border-t border-solid border-white/5 font-['Be_Vietnam_Pro',sans-serif]"
     >
       <div
         class="flex flex-col sm:flex-row gap-3 justify-between items-center mb-6"
