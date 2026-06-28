@@ -185,7 +185,7 @@ $testimonials_section = get_field('testimonials_section');
           &#8249;
         </button>
         <div class="overflow-hidden flex-1 mx-3 my-0" id="pViewport">
-          <div class="flex flex-col gap-4" id="pRows">
+          <div class="flex flex-col gap-16" id="pRows">
             <div
               class="flex items-center transition-transform duration-[0.4s] ease-out will-change-transform"
               id="pTrack"
@@ -453,7 +453,8 @@ $testimonials_section = get_field('testimonials_section');
                         $formatted_courses[] = [
                             'background_image' => $courses['background_image'],
                             'title'  => $courses['title'],
-                            'description'  => $courses['description']
+                            'description'  => $courses['description'],
+                            'link'  => $courses['link'],
                         ];
                     }
                 }
@@ -471,23 +472,23 @@ $testimonials_section = get_field('testimonials_section');
                     <h3 class="text-xl font-bold text-white uppercase leading-tight">
                         ${item.title}
                     </h3>
-                    <p class="text-sm text-gray-400 font-medium leading-relaxed backdrop-blur-xs rounded-lg p-1 inline-block">
+                    <p class="text-sm text-gray-400 font-medium leading-relaxed backdrop-blur-xs rounded-lg inline-block">
                         ${item.description}
                     </p>
                     </div>
-                    <div>
-                    <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#e5aa56] transition-all hover:underline">
-                        Xem chi tiết
-                        <svg
-                        class="size-2.5 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        >
-                        <path
-                            d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
-                        />
-                        </svg>
-                    </a>
+                    <div class="mt-2">
+                      <a href="${item.link}" class="inline-flex items-center gap-2 text-sm font-semibold text-[#e5aa56] transition-all hover:underline">
+                          Xem chi tiết
+                          <svg
+                          class="size-2.5 fill-current"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          >
+                          <path
+                              d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H40c-17.7 0-32 14.3-32 32s14.3 32 32 32h362.7L265.4 413.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                          />
+                          </svg>
+                      </a>
                     </div>
                 </div>
                 `,
@@ -750,9 +751,12 @@ $testimonials_section = get_field('testimonials_section');
             $formatted_videos = [];
             if (!empty($vtalk_in_action_section['videos'])) {
                  foreach ($vtalk_in_action_section['videos'] as $video) {
+                    $raw = $video['link'];
+                    preg_match('/src=["\']([^"\']+)["\']/', $raw, $matches);
+                    $src = !empty($matches[1]) ? $matches[1] : $raw;
                     $formatted_videos[] = [
                         'title' => $video['title'],
-                        'link'  => $video['link'],
+                        'link'  => $src,
                     ];
                 }
             }

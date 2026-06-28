@@ -1,3 +1,19 @@
+<?php
+/**
+ * Template Name: Contact V2
+ *
+ * @since 1.0.0
+ * @author ...
+ */
+
+get_header();
+
+$hero_section = get_field('hero_section');
+$contact_info_section = get_field('contact_info_section');
+$contact_form_section = get_field('contact_form_section');
+$faq_section = get_field('faq_section');
+?>
+
 <!doctype html>
 <html lang="vi">
   <head>
@@ -23,9 +39,9 @@
     />
     <style>
       body {
-        background-color: #0d0d1a;
-        color: #fff;
-        font-family: "Be Vietnam Pro", sans-serif;
+        background-color: #0d0d1a !important;
+        color: #fff !important;
+        font-family: "Be Vietnam Pro", sans-serif !important;
       }
       input,
       textarea,
@@ -37,11 +53,11 @@
       }
       input::placeholder,
       textarea::placeholder {
-        color: #6b7280;
+        color: #6b7280 !important;
       }
       select option {
-        background-color: #142132;
-        color: #fff;
+        background-color: #142132 !important;
+        color: #fff !important;
       }
       input:focus,
       textarea:focus,
@@ -58,7 +74,7 @@
     >
       <div class="absolute inset-0">
         <img
-          src="./images/hero.jpg"
+          src="<?php echo $hero_section['background_image']; ?>"
           alt="Hero Image"
           class="hidden lg:block w-full h-full object-fill"
         />
@@ -72,27 +88,25 @@
         <div class="flex-1">
           <div class="mb-4 lg:mb-8">
             <p class="text-2xl sm:text-3xl font-bold uppercase text-white mb-3">
-              LIÊN HỆ VỚI VTALK ACADEMY
+              <?php echo $hero_section['title']['text_1']; ?>
             </p>
             <h1>
               <span
                 class="block text-2xl sm:text-4xl font-extrabold leading-tight mb-3"
               >
-                CHÚNG TÔI LUÔN SẴN SÀNG
+                <?php echo $hero_section['title']['text_2']; ?>
               </span>
               <span
                 class="block text-2xl sm:text-4xl font-black leading-tight text-[#e5aa56]"
               >
-                ĐỒNG HÀNH CÙNG BẠN
+                <?php echo $hero_section['title']['text_3']; ?>
               </span>
             </h1>
           </div>
           <p
             class="text-gray-400 text-sm lg:text-base leading-relaxed mb-8 lg:mb-12"
           >
-            Dù bạn là cá nhân muốn phát triển kỹ năng, doanh nghiệp cần đào tạo
-            đội ngũ, hay đối tác muốn hợp tác – đội ngũ VTALK Academy luôn sẵn
-            sàng lắng nghe và hỗ trợ bạn.
+            <?php echo $hero_section['content']; ?>
           </p>
           <div class="grid grid-cols-2 gap-4">
             <div id="hero-features"></div>
@@ -102,38 +116,30 @@
       </div>
 
       <script>
-        const heroFeatures = [
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/headset.png",
-            title: "Tư vấn tận tâm",
-            desc: "Giải đáp mọi thắc mắc",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/lightning-bolt.png",
-            title: "Hỗ trợ nhanh chóng",
-            desc: "Phản hồi trong 24h",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/info.png",
-            title: "Thông tin chính xác",
-            desc: "Minh bạch & rõ ràng",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/handshake.png",
-            title: "Đồng hành lâu dài",
-            desc: "Cùng bạn phát triển",
-          },
-        ];
+        const heroFeatures = <?php 
+          $formatted_stats = [];
+          if (!empty($hero_section['stats'])) {
+              foreach ($hero_section['stats'] as $hero) {
+                  $formatted_stats[] = [
+                      'icon' => $hero['icon'],
+                      'text_1'  => $hero['text_1'],
+                      'text_2'  => $hero['text_2'],
+                  ];
+              }
+          }
+          echo json_encode($formatted_stats);
+        ?>;
+
         document.getElementById("hero-features").outerHTML =
           `<div class="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto sm:mx-0">` +
           heroFeatures
             .map(
               (f) => `
           <div class="flex items-start gap-4 sm:gap-3">
-            <img src="${f.icon}" class="size-10 sm:size-8 mt-0.5 flex-shrink-0" alt="${f.title}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
+            <img src="${f.icon}" class="size-10 sm:size-8 mt-0.5 flex-shrink-0" alt="${f.text_1}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
             <div>
-              <div class="font-semibold text-base lg:text-sm text-white">${f.title}</div>
-              <div class="text-sm lg:text-xs text-gray-400">${f.desc}</div>
+              <div class="font-semibold text-base lg:text-sm text-white">${f.text_1}</div>
+              <div class="text-sm lg:text-xs text-gray-400">${f.text_2}</div>
             </div>
           </div>
         `,
@@ -146,10 +152,8 @@
     <!-- Contact Info Section -->
     <section class="bg-[#071321] py-12 lg:py-16">
       <div class="mx-auto px-6 lg:px-20">
-        <h2
-          class="text-2xl sm:text-3xl lg:text-3xl font-bold text-white mb-10 uppercase text-center lg:text-left"
-        >
-          Thông Tin Liên Hệ
+        <h2 class="text-2xl sm:text-3xl lg:text-3xl font-bold text-white mb-10 uppercase text-center lg:text-left">
+          <?php echo $contact_info_section['title']; ?>
         </h2>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="flex flex-col gap-4 w-full lg:w-[30%] flex-shrink-0">
@@ -157,95 +161,88 @@
           </div>
           <div class="flex flex-col gap-4 w-full">
             <div class="flex flex-col lg:flex-row gap-3">
-              <select
-                id="select-tinh"
-                class="flex-1 bg-[#0e1e30] text-white border border-white/20 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#e5aa56] cursor-pointer"
-              >
+              <select id="select-tinh" class="flex-1 bg-[#0e1e30] text-white border border-white/20 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#e5aa56] cursor-pointer">
                 <option value="">--- Chọn tỉnh/thành ---</option>
               </select>
-              <select
-                id="select-coso"
-                class="flex-1 bg-[#0e1e30] text-white border border-white/20 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#e5aa56] cursor-pointer"
-                disabled
-              >
+              <select id="select-coso" class="flex-1 bg-[#0e1e30] text-white border border-white/20 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#e5aa56] cursor-pointer" disabled>
                 <option value="">--- Chọn cơ sở ---</option>
               </select>
-              <button
-                id="btn-chon"
-                class="bg-[#e5aa56] hover:bg-[#d4993f] text-[#071321] font-bold px-8 py-3 rounded-lg text-base transition-colors whitespace-nowrap"
-              >
+              <button id="btn-chon" class="bg-[#e5aa56] hover:bg-[#d4993f] text-[#071321] font-bold px-8 py-3 rounded-lg text-base transition-colors whitespace-nowrap">
                 Chọn
               </button>
             </div>
             <div class="flex flex-col lg:flex-row gap-4">
-              <div
-                class="flex-1 flex w-full rounded-2xl overflow-hidden min-h-[200px] lg:min-h-[435px] shadow-lg border border-white/15"
-              >
-                <iframe
-                  id="map-iframe"
-                  src=""
-                  class="w-full h-full min-h-[200px] lg:min-h-[435px] block"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div class="flex-1 flex w-full rounded-2xl overflow-hidden min-h-[200px] lg:min-h-[455px] shadow-lg border border-white/15">
+                <iframe id="map-iframe" src="" class="w-full h-full min-h-[200px] lg:min-h-[435px] block" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
-
-              <div
-                id="branch-info-panel"
-                class="hidden lg:w-[300px] flex-shrink-0 bg-white rounded-2xl p-6 flex flex-col gap-3"
-              ></div>
+              <div id="branch-info-panel" class="hidden lg:w-[300px] flex-shrink-0 bg-white rounded-2xl p-6 flex flex-col gap-3"></div>
             </div>
           </div>
         </div>
       </div>
 
       <script>
-        const branches = [
-          {
-            tinh: "tp-hcm",
-            tinhLabel: "TP. Hồ Chí Minh",
-            id: "hcm-phu-nhuan",
-            label: "Cơ sở Phú Nhuận",
-            name: "VTALK ACADEMY | PHÚ NHUẬN",
-            address: "184/1A Lê Văn Sỹ, Phú Nhuận, TP. Hồ Chí Minh",
-            tel: "0372 831 697",
-            email: "email.contact@vtalk.edu.vn",
-            mapSrc:
-              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3814232091277!2d106.68677061402407!3d10.782070862039648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173556630002669%3A0xe1fbb282ed67af16!2zSOG7jWMgdmnhu4duIEvhu7kgbsSDbmcgVlRBTEs!5e0!3m2!1svi!2s!4v1673924221566!5m2!1svi!2s",
-          },
-          {
-            tinh: "tp-hcm",
-            tinhLabel: "TP. Hồ Chí Minh",
-            id: "hcm-quan3",
-            label: "Cơ sở Quận 3",
-            name: "VTALK ACADEMY | DISTRICT 3",
-            address: "224 Điện Biên Phủ, Phường 7, Quận 3, TP. Hồ Chí Minh",
-            tel: "0372 831 697",
-            email: "email.contact@vtalk.edu.vn",
-            mapSrc:
-              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d106.6900!3d10.7800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3a9d8b6b6b%3A0x1234567890abcdef!2z224%20%C4%90i%E1%BB%87n%20Bi%C3%AAn%20Ph%E1%BB%A7%2C%20Ph%C6%B0%E1%BB%9Dng%207%2C%20Qu%E1%BA%ADn%203!5e0!3m2!1svi!2s!4v1673924221566!5m2!1svi!2s",
-          },
-          {
-            tinh: "ha-noi",
-            tinhLabel: "Hà Nội",
-            id: "hn-caugiay",
-            label: "Cơ sở Cầu Giấy",
-            name: "VTALK ACADEMY | CẦU GIẤY",
-            address: "123 Xuân Thủy, Cầu Giấy, Hà Nội",
-            tel: "0372 831 697",
-            email: "email.contact@vtalk.edu.vn",
-            mapSrc:
-              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.7900!3d21.0300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab3e6b6b6b6b%3A0xabcdef1234567890!2zQ%E1%BA%A7u%20Gi%E1%BA%A5y%2C%20H%C3%A0%20N%E1%BB%99i!5e0!3m2!1svi!2s!4v1673924221566!5m2!1svi!2s",
-          },
-        ];
+        <?php
+        $formatted_info = [];
+        if (!empty($contact_info_section['info'])) {
+          foreach ($contact_info_section['info'] as $item) {
+            $formatted_info[] = [
+              'icon'        => $item['icon'] ?? '',
+              'title'       => $item['title'] ?? '',
+              'description' => $item['description'] ?? '',
+            ];
+          }
+        }
+
+        $social_media = [];
+        if (!empty($contact_info_section['social_media'])) {
+          $sm = $contact_info_section['social_media'];
+          $social_media = [
+            'icon'  => $sm['icon'] ?? '',
+            'title' => $sm['title'] ?? '',
+            'items' => [],
+          ];
+          if (!empty($sm['item'])) {
+            foreach ($sm['item'] as $s) {
+              $social_media['items'][] = [
+                'image' => $s['image'] ?? '',
+                'link'  => $s['link'] ?? '',
+              ];
+            }
+          }
+        }
+
+        $formatted_branches = [];
+        if (!empty($contact_info_section['map'])) {
+          foreach ($contact_info_section['map'] as $branch) {
+            $raw_map_src = $branch['map_src'] ?? '';
+            preg_match('/src="([^"]+)"/', $raw_map_src, $matches);
+            $map_src = $matches[1] ?? $raw_map_src;
+
+            $formatted_branches[] = [
+              'province_city' => $branch['province_city'] ?? '',
+              'branch'        => $branch['branch'] ?? '',
+              'map_src'       => $map_src,
+              'content'       => [
+                'title'   => $branch['content']['title'] ?? '',
+                'address' => $branch['content']['address'] ?? '',
+                'phone'   => $branch['content']['phone'] ?? '',
+                'email'   => $branch['content']['email'] ?? '',
+              ],
+            ];
+          }
+        }
+        ?>
+
+        const contactInfoItems = <?php echo json_encode($formatted_info); ?>;
+        const socialMedia = <?php echo json_encode($social_media); ?>;
+        const branches = <?php echo json_encode($formatted_branches); ?>;
 
         const tinhGroups = {};
-        branches.forEach((b) => {
-          if (!tinhGroups[b.tinh])
-            tinhGroups[b.tinh] = { label: b.tinhLabel, branches: [] };
-          tinhGroups[b.tinh].branches.push(b);
+        branches.forEach((b, index) => {
+          const key = b.province_city;
+          if (!tinhGroups[key]) tinhGroups[key] = { label: b.province_city, branches: [] };
+          tinhGroups[key].branches.push({ ...b, id: 'branch-' + index });
         });
 
         const selectTinh = document.getElementById("select-tinh");
@@ -271,28 +268,33 @@
           group.branches.forEach((b) => {
             const opt = document.createElement("option");
             opt.value = b.id;
-            opt.textContent = b.label;
+            opt.textContent = b.branch;
             selectCoso.appendChild(opt);
           });
           selectCoso.disabled = false;
         });
 
+        const allBranchesWithId = [];
+        Object.values(tinhGroups).forEach(group => {
+          group.branches.forEach(b => allBranchesWithId.push(b));
+        });
+
         function showBranch(branch) {
-          mapIframe.src = branch.mapSrc;
+          mapIframe.src = branch.map_src;
           branchPanel.innerHTML = `
-        <div class="font-bold text-[#071321] text-base mb-1">${branch.name}</div>
-        <hr class="border-gray-200 my-1"/>
-        <div class="text-sm text-gray-700 leading-relaxed">${branch.address}</div>
-        <div class="text-sm text-gray-700 mt-2">Tel: <span class="font-medium">${branch.tel}</span></div>
-        <div class="text-sm text-gray-700 mt-1">Email: <a href="mailto:${branch.email}" class="text-red-500 hover:underline">${branch.email}</a></div>
-      `;
+            <div class="font-bold text-[#071321] text-base mb-1">${branch.content.title}</div>
+            <hr class="border-gray-200 my-1"/>
+            <div class="text-sm text-gray-700 leading-relaxed">${branch.content.address}</div>
+            <div class="text-sm text-gray-700 mt-2">Tel: <span class="font-medium">${branch.content.phone}</span></div>
+            <div class="text-sm text-gray-700 mt-1">Email: <a href="mailto:${branch.content.email}" class="text-red-500 hover:underline">${branch.content.email}</a></div>
+          `;
           branchPanel.classList.remove("hidden");
         }
 
         btnChon.addEventListener("click", function () {
           const cosoId = selectCoso.value;
           if (!cosoId) return;
-          const branch = branches.find((b) => b.id === cosoId);
+          const branch = allBranchesWithId.find((b) => b.id === cosoId);
           if (branch) showBranch(branch);
         });
 
@@ -301,87 +303,37 @@
             branchPanel.classList.add("hidden");
             return;
           }
-          const branch = branches.find((b) => b.id === this.value);
+          const branch = allBranchesWithId.find((b) => b.id === this.value);
           if (branch) showBranch(branch);
         });
 
-        const contactInfoItems = [
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/marker.png",
-            label: "Địa chỉ",
-            lines: ["184/1A Lê Văn Sỹ,<br/> Phú Nhuận, TPHCM"],
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/phone.png",
-            label: "Hotline",
-            lines: ["0372 831 697"],
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/email.png",
-            label: "Email",
-            lines: ["email.contact@vtalk.edu.vn"],
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/clock.png",
-            label: "Giờ làm việc",
-            lines: [
-              "Thứ ba - Chủ nhật: 8:30 - 22:00 <br/> Thứ hai: 10:00 - 22:00",
-            ],
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/link.png",
-            label: "Kết nối với chúng tôi",
-            social: true,
-          },
-        ];
-        const socialIcons = [
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/facebook-new.png",
-            label: "Facebook",
-            link: "https://www.facebook.com/HocvienkynangVTALK/",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/youtube-play.png",
-            label: "YouTube",
-            link: "https://www.facebook.com/HocvienkynangVTALK/",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/tiktok.png",
-            label: "TikTok",
-            link: "https://www.tiktok.com/@hocvienkynangvtalk",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/linkedin.png",
-            label: "LinkedIn",
-            link: "https://www.linkedin.com/company/vtalkacademy/",
-          },
-        ];
+        const contactListEl = document.getElementById("contact-info-list");
+        const socialRow = socialMedia.items ? `
+          <div class="flex items-center gap-4 bg-[#071324] rounded-lg border border-white/15 p-4">
+            <div class="size-10 rounded-full bg-[#1a1a30] flex items-center justify-center flex-shrink-0">
+              <img src="${socialMedia.icon}" class="size-8" alt="${socialMedia.title}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
+            </div>
+            <div>
+              <div class="text-sm text-gray-400 mb-2">${socialMedia.title}</div>
+              <div class="flex gap-4 mt-3">
+                ${socialMedia.items.map(s => `<a href="${s.link}" target="_blank"><img src="${s.image}" class="w-6 h-6" alt="" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" /></a>`).join('')}
+              </div>
+            </div>
+          </div>
+        ` : '';
 
-        document.getElementById("contact-info-list").outerHTML =
-          contactInfoItems
-            .map(
-              (item) => `
-      <div class="flex items-center gap-4 bg-[#071324] rounded-lg border border-white/15 p-4">
-        <div class="w-10 h-10 rounded-full bg-[#1a1a30] flex items-center justify-center flex-shrink-0">
-          <img src="${item.icon}" class="w-5 h-5" alt="${item.label}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
-        </div>
-        <div>
-          <div class="text-xs text-gray-400 mb-2">${item.label}</div>
-          ${
-            item.social
-              ? `<div class="flex gap-3 mt-2">${socialIcons.map((s) => `<a href="${s.link}" target="_blank"><img src="${s.icon}" class="w-6 h-6" alt="${s.label}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" /></a>`).join("")}</div>`
-              : item.lines
-                  .map(
-                    (l) =>
-                      `<div class="text-sm text-white font-medium">${l}</div>`,
-                  )
-                  .join("")
-          }
-        </div>
-      </div>
-    `,
-            )
-            .join("");
+        contactListEl.outerHTML =
+          contactInfoItems.map(item => `
+            <div class="flex items-center gap-4 bg-[#071324] rounded-lg border border-white/15 p-4">
+              <div class="size-10 rounded-full bg-[#1a1a30] flex items-center justify-center flex-shrink-0">
+                <img src="${item.icon}" class="size-8" alt="${item.title}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
+              </div>
+              <div>
+                <div class="text-sm text-gray-400 mb-2">${item.title}</div>
+                <div class="text-sm text-white font-medium">${item.description}</div>
+              </div>
+            </div>
+          `).join('') + socialRow;
       </script>
     </section>
 
@@ -391,11 +343,10 @@
         <h2
           class="text-2xl sm:text-3xl lg:text-3xl font-bold text-white mb-3 uppercase text-center lg:text-left"
         >
-          Gửi Yêu Cầu Tư Vấn
+          <?php echo $contact_form_section['title']; ?>
         </h2>
         <p class="text-gray-400 text-base mb-10 text-center lg:text-left">
-          Hãy để lại thông tin, đội ngũ VTALK Academy sẽ liên hệ với bạn trong
-          thời gian sớm nhất!
+          <?php echo $contact_form_section['description']; ?>
         </p>
         <div class="flex flex-col lg:flex-row gap-8">
           <div
@@ -438,16 +389,31 @@
               </label>
 
               <div class="relative">
-                <select
+                <select 
+                  id="nhu-cau-select"
                   class="w-full rounded-lg px-4 py-3 text-sm appearance-none cursor-pointer text-white border border-gray-700 pr-10"
                 >
                   <option value="">Chọn nhu cầu kết nối</option>
-                  <option>Đào tạo tại Doanh nghiệp (In-house traning)</option>
-                  <option>Đào tạo Cá nhân</option>
-                  <option>Kết nối truyền thông</option>
-                  <option>Kết nối hợp tác</option>
-                  <option>Kết nối tài trợ</option>
-                  <option>Khác</option>
+                  <script>
+                    const optionData = <?php 
+                      $formatted_options = [];
+                      if (!empty($contact_form_section['form']['select_options'])) {
+                          foreach ($contact_form_section['form']['select_options'] as $option) {
+                              $formatted_options[] = [
+                                  'option' => $option['option'],
+                              ];
+                          }
+                      }
+                      echo json_encode($formatted_options);
+                    ?>;
+                    const selectElement = document.getElementById('nhu-cau-select');
+
+                    const optionsHtml = optionData.map(item => {
+                      return `<option value="${item.option}">${item.option}</option>`;
+                    }).join('');
+
+                    selectElement.innerHTML += optionsHtml;
+                  </script>
                 </select>
 
                 <div
@@ -494,7 +460,7 @@
             <div
               class="font-bold text-2xl sm:text-3xl lg:text-base mb-5 text-center lg:text-left"
             >
-              BẠN CÓ THỂ LIÊN HỆ CHÚNG TÔI QUA
+              <?php echo $contact_form_section['contact_method']['title']; ?>
             </div>
             <div id="contact-channels" class="flex flex-col gap-3"></div>
           </div>
@@ -502,41 +468,34 @@
       </div>
 
       <script>
-        const channels = [
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/registration.png",
-            title: "Đăng ký tư vấn nhanh",
-            desc: "Nhận tư vấn lộ trình phù hợp cho cá nhân & doanh nghiệp",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/chat-message.png",
-            title: "Chat với chúng tôi",
-            desc: "Hỗ trợ trực tuyến qua Zalo / Messenger",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/email.png",
-            title: "Gửi email",
-            desc: "Phản hồi chi tiết trong 24h",
-          },
-          {
-            icon: "https://img.icons8.com/ios/50/e5aa56/phone.png",
-            title: "Gọi ngay",
-            desc: "Hotline 0372 831 697 để được hỗ trợ nhanh nhất",
-          },
-        ];
+        const channels = <?php 
+          $formatted_chanels = [];
+          if (!empty($contact_form_section['contact_method']['methods'])) {
+              foreach ($contact_form_section['contact_method']['methods'] as $method) {
+                  $formatted_chanels[] = [
+                      'icon' => $method['icon'],
+                      'title'  => $method['title'],
+                      'description'  => $method['description'],
+                      'link'  => $method['link'],
+                  ];
+              }
+          }
+          echo json_encode($formatted_chanels);
+        ?>;
+
         document.getElementById("contact-channels").innerHTML = channels
           .map(
             (c) => `
-        <div class="flex items-center gap-4 bg-[#051524] hover:bg-[#061c30] rounded-xl px-4 py-4 cursor-pointer transition-colors duration-200 group">
-          <div class="size-11 bg-[#051121] rounded-full flex items-center justify-center flex-shrink-0">
-            <img src="${c.icon}" class="w-6 h-6" alt="${c.title}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
+        <a href="${c.link}" class="flex items-center gap-4 bg-[#051524] hover:bg-[#061c30] rounded-xl px-4 py-4 cursor-pointer transition-colors duration-200 group">
+          <div class="size-12 bg-[#051121] rounded-full flex items-center justify-center flex-shrink-0">
+            <img src="${c.icon}" class="size-8" alt="${c.title}" onerror="this.src='https://img.icons8.com/ios/50/e5aa56/star.png'" />
           </div>
           <div class="flex-1 min-w-0">
             <div class="text-sm font-bold text-white leading-tight">${c.title}</div>
-            <div class="text-xs text-gray-400 mt-0.5 leading-snug">${c.desc}</div>
+            <div class="text-xs text-gray-400 mt-0.5 leading-snug">${c.description}</div>
           </div>
           <svg class="w-4 h-4 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-        </div>
+        </a>
       `,
           )
           .join("");
@@ -549,7 +508,7 @@
         <h2
           class="text-2xl sm:text-3xl lg:text-3xl font-bold text-white mb-10 uppercase text-center lg:text-left"
         >
-          Câu Hỏi Thường Gặp
+          <?php echo $faq_section['title']; ?>
         </h2>
         <div class="flex flex-col sm:flex-row gap-4 items-start">
           <div id="faq-col-1" class="w-full flex flex-col gap-4"></div>
@@ -574,42 +533,28 @@
       </style>
 
       <script>
-        const faqs = [
-          {
-            q: "VTALK Academy có những khóa học nào?",
-            a: "VTALK cung cấp các khóa kỹ năng mềm, thuyết trình, giao tiếp, lãnh đạo và ứng dụng AI tạo sinh cho cá nhân và doanh nghiệp. Nội dung được thiết kế chuẩn hóa cho từng đối tượng cụ thể từ sinh viên đến quản lý cấp cao.",
-          },
-          {
-            q: "Doanh nghiệp muốn đào tạo in-house thì liên hệ thế nào?",
-            a: "Bạn có thể liên hệ qua hotline 0978 188 468 hoặc điền form tư vấn, đội ngũ sẽ phản hồi trong 24h.",
-          },
-          {
-            q: "Học phí tại VTALK Academy như thế nào?",
-            a: "Học phí tùy theo khóa học và hình thức đào tạo. Vui lòng liên hệ để nhận báo giá chi tiết phù hợp với nhu cầu.",
-          },
-          {
-            q: "VTALK Academy có cấp chứng chỉ không?",
-            a: "Có, học viên hoàn thành khóa học sẽ được cấp chứng chỉ do VTALK Academy cấp và được công nhận bởi đối tác.",
-          },
-          {
-            q: "Có hỗ trợ học viên sau khóa học không?",
-            a: "Có, VTALK cung cấp cộng đồng alumni và hỗ trợ sau khóa học để học viên tiếp tục phát triển.",
-          },
-          {
-            q: "Làm thế nào để trở thành giảng viên tại VTALK?",
-            a: "Bạn có thể gửi CV và hồ sơ qua email info@vtalk.edu.vn hoặc liên hệ trực tiếp để được trao đổi thêm.",
-          },
-        ];
+        const faqs = <?php 
+          $formatted_faqs = [];
+          if (!empty($faq_section['items'])) {
+              foreach ($faq_section['items'] as $item) {
+                  $formatted_faqs[] = [
+                      'question' => $item['question'],
+                      'answer'  => $item['answer'],
+                  ];
+              }
+          }
+          echo json_encode($formatted_faqs);
+        ?>;
 
         const renderFaqItem = (faq, i) => `
       <div class="border border-white/15 rounded-md overflow-hidden bg-[#111c2d]">
         <button onclick="toggleFaq(${i})" class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[#111c2d]/70 transition-colors duration-200 gap-4">
-          <span class="font-semibold text-sm text-white">${faq.q}</span>
+          <span class="font-semibold text-sm text-white">${faq.question}</span>
           <svg id="faq-icon-${i}" class="w-5 h-5 text-[#e5aa56] flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div id="faq-body-${i}" style="max-height: 0px;" class="overflow-hidden transition-all duration-200 ease-in-out">
           <div class="px-5 pb-4 text-sm text-white leading-relaxed border-t border-white/15 pt-3 max-h-[180px] overflow-y-auto faq-scrollbar">
-            ${faq.a}
+            ${faq.answer}
           </div>
         </div>
       </div>
@@ -643,3 +588,7 @@
     </section>
   </body>
 </html>
+
+<?php
+
+get_footer();
