@@ -349,111 +349,200 @@ $faq_section = get_field('faq_section');
           <?php echo $contact_form_section['description']; ?>
         </p>
         <div class="flex flex-col lg:flex-row gap-8">
-          <div
-            class="bg-[#010d1d] flex-1 border border-white/15 rounded-md p-6 lg:p-8"
-          >
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-              <div>
-                <label class="block text-sm font-semibold mb-2"
-                  >Họ và tên <span class="text-[#e5aa56]">*</span></label
-                >
-                <input
-                  type="text"
-                  placeholder="Nhập họ và tên của bạn"
-                  class="w-full rounded-lg px-4 py-3 text-sm"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold mb-2"
-                  >Số điện thoại <span class="text-[#e5aa56]">*</span></label
-                >
-                <input
-                  type="tel"
-                  placeholder="Nhập số điện thoại"
-                  class="w-full rounded-lg px-4 py-3 text-sm"
-                />
-              </div>
-            </div>
-            <div class="mb-5">
-              <label class="block text-sm font-semibold mb-2">Email</label>
-              <input
-                type="email"
-                placeholder="Nhập email của bạn"
-                class="w-full rounded-lg px-4 py-3 text-sm"
-              />
-            </div>
-            <div class="mb-5">
-              <label class="block text-sm font-semibold mb-2">
-                Nhu cầu kết nối
-                <span class="text-[#e5aa56]">*</span>
-              </label>
-
-              <div class="relative">
-                <select 
-                  id="nhu-cau-select"
-                  class="w-full rounded-lg px-4 py-3 text-sm appearance-none cursor-pointer text-white border border-gray-700 pr-10"
-                >
-                  <option value="">Chọn nhu cầu kết nối</option>
-                  <script>
-                    const optionData = <?php 
-                      $formatted_options = [];
-                      if (!empty($contact_form_section['form']['select_options'])) {
-                          foreach ($contact_form_section['form']['select_options'] as $option) {
-                              $formatted_options[] = [
-                                  'option' => $option['option'],
-                              ];
-                          }
-                      }
-                      echo json_encode($formatted_options);
-                    ?>;
-                    const selectElement = document.getElementById('nhu-cau-select');
-
-                    const optionsHtml = optionData.map(item => {
-                      return `<option value="${item.option}">${item.option}</option>`;
-                    }).join('');
-
-                    selectElement.innerHTML += optionsHtml;
-                  </script>
-                </select>
-
-                <div
-                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"
-                >
-                  <svg
-                    class="fill-current h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="mb-6">
-              <label class="block text-sm font-semibold mb-2"
-                >Nội dung cần tư vấn
-                <span class="text-[#e5aa56]">*</span></label
-              >
-              <textarea
-                rows="5"
-                placeholder="Nhập nội dung bạn cần tư vấn..."
-                class="w-full rounded-lg px-4 py-3 text-sm resize-none"
-              ></textarea>
-            </div>
-            <button
-              class="w-full bg-[#e5aa56] hover:bg-[#d49840] text-[#0d0d1a] font-black text-base uppercase py-4 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200"
-            >
-              GỬI YÊU CẦU TƯ VẤN
-              <img
-                src="https://img.icons8.com/ios-filled/50/0d0d1a/sent.png"
-                class="w-5 h-5"
-                alt="send"
-                onerror="this.style.display = 'none'"
-              />
-            </button>
+          <div class="bg-[#010d1d] flex-1 border border-white/15 rounded-md p-6 lg:p-8">
+            <?php echo do_shortcode('[contact-form-7 id="5769" title="Form Contact Page"]'); ?>
           </div>
+
+          <script>
+            const optionData = <?php 
+              $formatted_options = [];
+              if (!empty($contact_form_section['form']['select_options'])) {
+                  foreach ($contact_form_section['form']['select_options'] as $option) {
+                      $formatted_options[] = $option['option'];
+                  }
+              }
+              echo json_encode($formatted_options);
+            ?>;
+
+            const selectElement = document.getElementById('nhu-cau-select');
+            if (selectElement) {
+                const blankOption = selectElement.querySelector('option[value=""]');
+                if (blankOption) {
+                  blankOption.textContent = 'Chọn nhu cầu kết nối';
+                }
+
+                optionData.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt;
+                    option.textContent = opt;
+                    selectElement.appendChild(option);
+                });
+            }
+
+            (function() {
+              const form = document.querySelector('.wpcf7-form');
+              if (!form) return;
+
+              form.setAttribute('novalidate', 'novalidate');
+
+              const submitBtn = form.querySelector('button[type="submit"]');
+              const responseOutput = form.querySelector('.wpcf7-response-output');
+              if (responseOutput && submitBtn) {
+                submitBtn.parentNode.insertBefore(responseOutput, submitBtn);
+                responseOutput.style.display = 'none';
+              }
+
+              const submitBtnTextEl = submitBtn ? submitBtn.querySelector('.submit-btn-text') : null;
+              const submitBtnIconEl = submitBtn ? submitBtn.querySelector('.submit-btn-icon') : null;
+              const submitBtnOriginalText = submitBtnTextEl ? submitBtnTextEl.textContent : '';
+              const submitBtnOriginalIconSrc = submitBtnIconEl ? submitBtnIconEl.src : '';
+
+              function setButtonLoading() {
+                if (!submitBtn) return;
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                if (submitBtnTextEl) submitBtnTextEl.textContent = 'ĐANG GỬI ...';
+                if (submitBtnIconEl) submitBtnIconEl.style.display = 'none';
+              }
+
+              function resetButtonLoading() {
+                if (!submitBtn) return;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                if (submitBtnTextEl) submitBtnTextEl.textContent = submitBtnOriginalText;
+                if (submitBtnIconEl) submitBtnIconEl.style.display = '';
+              }
+
+              function styleResponseOutput(type) {
+                if (!responseOutput) return;
+                responseOutput.style.display = 'block';
+                responseOutput.className = 'wpcf7-response-output rounded-lg px-4 py-3 text-sm font-semibold mb-5 border';
+                if (type === 'success') {
+                  responseOutput.classList.add('bg-green-500/10', 'text-green-400', 'border-green-500/40');
+                } else {
+                  responseOutput.classList.add('bg-red-500/10', 'text-red-400', 'border-red-500/40');
+                }
+              }
+
+              form.addEventListener('wpcf7mailsent', function() {
+                styleResponseOutput('success');
+                resetButtonLoading();
+              }, false);
+
+              form.addEventListener('wpcf7mailfailed', function() {
+                styleResponseOutput('error');
+                resetButtonLoading();
+              }, false);
+
+              form.addEventListener('wpcf7invalid', function() {
+                styleResponseOutput('error');
+                resetButtonLoading();
+              }, false);
+
+              form.addEventListener('wpcf7spam', function() {
+                styleResponseOutput('error');
+                resetButtonLoading();
+              }, false);
+
+              const fieldsToValidate = [
+                { name: 'your-name', message: 'Vui lòng nhập họ và tên' },
+                { name: 'your-phone', message: 'Vui lòng nhập số điện thoại' },
+                { name: 'your-demand', message: 'Vui lòng chọn nhu cầu kết nối' },
+                { name: 'your-message', message: 'Vui lòng nhập nội dung cần tư vấn' },
+              ];
+
+              function getWrap(name) {
+                return form.querySelector('.wpcf7-form-control-wrap[data-name="' + name + '"]');
+              }
+
+              function getInput(wrap) {
+                return wrap.querySelector('input, select, textarea');
+              }
+
+              function showFieldError(wrap, message) {
+                const input = getInput(wrap);
+                if (input) {
+                  input.classList.add('border-red-500');
+                }
+                let errorEl = wrap.querySelector('.cf7-field-error');
+                if (!errorEl) {
+                  errorEl = document.createElement('div');
+                  errorEl.className = 'cf7-field-error text-red-500 text-xs mt-2';
+                  wrap.appendChild(errorEl);
+                }
+                errorEl.textContent = message;
+              }
+
+              function clearFieldError(wrap) {
+                const input = getInput(wrap);
+                if (input) {
+                  input.classList.remove('border-red-500');
+                }
+                const errorEl = wrap.querySelector('.cf7-field-error');
+                if (errorEl) {
+                  errorEl.remove();
+                }
+              }
+
+              function isFieldEmpty(value, fieldName) {
+                if (fieldName === 'your-demand') {
+                  return !value || value.trim() === '' || value.trim() === 'Chọn nhu cầu kết nối';
+                }
+                return !value || value.trim() === '';
+              }
+
+              function validateForm() {
+                let firstInvalidWrap = null;
+
+                fieldsToValidate.forEach(field => {
+                  const wrap = getWrap(field.name);
+                  if (!wrap) return;
+                  const input = getInput(wrap);
+                  if (!input) return;
+
+                  clearFieldError(wrap);
+
+                  if (isFieldEmpty(input.value, field.name)) {
+                    showFieldError(wrap, field.message);
+                    if (!firstInvalidWrap) {
+                      firstInvalidWrap = wrap;
+                    }
+                  }
+                });
+
+                return firstInvalidWrap;
+              }
+
+              fieldsToValidate.forEach(field => {
+                const wrap = getWrap(field.name);
+                if (!wrap) return;
+                const input = getInput(wrap);
+                if (!input) return;
+                const eventType = input.tagName === 'SELECT' ? 'change' : 'input';
+                input.addEventListener(eventType, function() {
+                  if (!isFieldEmpty(input.value, field.name)) {
+                    clearFieldError(wrap);
+                  }
+                });
+              });
+
+              form.addEventListener('submit', function(e) {
+                const firstInvalidWrap = validateForm();
+                if (firstInvalidWrap) {
+                  e.preventDefault();
+                  e.stopImmediatePropagation();
+                  firstInvalidWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  const input = getInput(firstInvalidWrap);
+                  if (input) {
+                    input.focus();
+                  }
+                } else {
+                  setButtonLoading();
+                }
+              }, true);
+            })();
+          </script>
+
           <div
             class="bg-[#010d1d] w-full lg:w-[35%] flex-shrink-0 border border-white/15 p-6 lg:p-8 rounded-md"
           >
